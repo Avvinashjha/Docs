@@ -2,7 +2,7 @@
 
 `REmote Dictionary Server` `open-source` `database` `cache` `message broker` `high performance` `flexiblity` 
 
-Redis is an open source, in-memory data structure store, that is widely used as database, cache and message broker. It is known for its hig performance, flexiblity, and support for various data structures (string, hashes, list and more)
+Redis is an open source, in-memory data structure store, that is widely used as database, cache and message broker. It is known for its high performance, flexiblity, and support for various data structures (string, hashes, list and more)
 
 ### Key Features of Redis
 
@@ -12,7 +12,7 @@ Redis is an open source, in-memory data structure store, that is widely used as 
 
 - Persitance
     - Redis is in memory store but it also provides option to persit the data to disk
-    - It supports tow main persitance mechanism
+    - It supports two main persitance mechanism
         - **RDB (Redis Databse File):** Periodic snapshot of databse
         - **AOF (Append Only File):** Logs every write operation, allowing redis to rebuild the dataset on restart
 
@@ -38,7 +38,7 @@ Redis is an open source, in-memory data structure store, that is widely used as 
     - Redis Provides a publish/subscribe messaging system, allowing real time communication between different components of an applicaton
 
 - Lua Scripting
-    - Redis support Lua Scripting, enabling users to execute complex operation on server side avoiding differenct client server trips
+    - Redis support Lua Scripting, enabling users to execute complex operation on server side avoiding different client server trips
 
 - High Availablity
      - Redis Provides replication (master-slave) and Redis Sentinel for monitoring 
@@ -56,7 +56,7 @@ Redis is an open source, in-memory data structure store, that is widely used as 
     - Frequently used as caching layer to store Frequently accessed data reducing database load and improves performance
 
 - Seession store
-    - It can be used to store Seession data in web applicaton, enabling fast retrieval and updates
+    - It can be used to store Session data in web applicaton, enabling fast retrieval and updates
 
 - Real Time Analytics
     - Redis speed and support for sorted sets make it ideal for real time Analytics and leaderboards
@@ -81,7 +81,7 @@ Redis is an open source, in-memory data structure store, that is widely used as 
 
 ## Limitations of Redis
 - Memory Contraints
-    - Redis store datain memory, it's capacity is limited by RAM
+    - Redis store data in memory, it's capacity is limited by RAM
     - Redis cluster can help to mitigate this Limitation
 
 - Persitance Overhead
