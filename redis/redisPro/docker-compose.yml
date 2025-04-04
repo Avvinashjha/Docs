@@ -1,0 +1,25 @@
+version: '1.0'
+
+services:
+  redis:
+    image: redis:latest
+    command: ["redis-server", "--requirepass", "test@123"]
+    networks:
+      - app-network
+
+  app:
+    build: .
+    ports:
+        - "9000:9000"
+    environment:
+      - SPRING_REDIS_HOST=redis
+      - SPRING_REDIS_PORT=6379
+      - SPRING_REDIS_PASSWORD=test@123
+    depends_on:
+      - redis
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
