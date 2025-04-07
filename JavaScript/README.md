@@ -1,6 +1,6 @@
 # Javascript Concepts to Focus
 
-## Basics
+## [Basics](./bascis/README.md)
 
 1. **Variables and Datatypes** ()
 
@@ -23,7 +23,7 @@
 - comparison Operators
 - `==` vs `===`
 
-3. **Control Structurs**
+3. **Control Structures**
 - `if/else`
 - `for/while`
 - `switch`
@@ -37,6 +37,10 @@
 - Selecting an element
 - Modifying an element
 - Different type of selectors
+- Event Delegation
+- Event Bubling
+- Event Throatling
+- more
 
 6. **Events**
 - Different types of events
@@ -49,7 +53,7 @@
 8. **Scope and Hoisting**
 - Global vs Functional Scope
 
-## Intermediate
+## [Intermediate](./intermediate/README.md)
 
 1. **ES6+ Features**
 - What does `ES6+ Features` Means
@@ -93,12 +97,6 @@
 - Inheritance `extends`
 - static methods
 
-7. **Advanced DOM**
-- Event Delegation
-- Event Bubling
-- Event Throatling
-- more
-
 8. **Closure and Higher-order Function**
 - Closure Scope
 - funxtion as arguments
@@ -110,7 +108,7 @@
 - `call()`
 - `apply()`
 
-## Advance
+## [Advance](./advance/README.md)
 
 1. **Javascript Engine and Runtime**
 - Event Loop
