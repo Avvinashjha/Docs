@@ -174,6 +174,8 @@ The *Execution Engine* is responsible for translating Java bytecode into machine
 
 This documentation should provide you a detailed understanding of how the JVM operates and how its components are interconnected. Identifying specific behaviors, like class loading and memory allocation, will also help you debug and write efficient Java applications.
 
+
+
 ---
 Resources:
 

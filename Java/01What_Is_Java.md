@@ -60,3 +60,64 @@ Java is a **high-level, object-oriented, platform-independent programming langua
 - Secure and reliable.
 
 Java is widely used for its **simplicity, versatility**, and ability to build **robust applications** across industries—from web to enterprise software.
+
+#### Where to Use Java?
+- CPU Intensice applications 
+- As Java is Multithreaded Language so we can use CPU More Efficient
+- Like Node is simgle threaded it should be used for I/O intensive applications
+
+## Java Fundamentals
+
+### JDK (Java Development Kit)
+
+### JVM
+
+### JRE
+
+### First Java Code
+
+- Test.java
+
+```java
+public class Test{
+    public static void main(String[] args){
+        System.out.println("Hello");
+    }
+}
+```
+
+- Compile the code
+```cmd
+javac path/test.java
+```
+it will generate `Test.class` file
+
+- execute the `Test.class` file
+```cmd
+java Test
+```
+
+- If you want to see the object file where machine intruction are there
+```
+javap -c Test
+```
+
+```
+public class com.practical.Main {
+  public com.practical.Main();
+    Code:
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+         0: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #13                 // String Hello world!
+         5: invokevirtual #15                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: return
+}
+
+```
+These are Machine instrunction only JVM Can uderstand and called as byte code.
+
