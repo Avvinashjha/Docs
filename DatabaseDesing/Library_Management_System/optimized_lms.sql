@@ -1,0 +1,5 @@
+CREATE TABLE Genre(
+    Genre_ID INT PRIMARY KEY,
+    Genre_name VARCHAR(100) NOT NULL UNIQUE
+);
+
