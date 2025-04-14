@@ -264,3 +264,5 @@ CREATE TABLE MembershipDetails (
     FOREIGN KEY (Plan_ID) REFERENCES MembershipPlan(Plan_ID)
 );
 ```
+
+![Optimized LMS](optimized_er_lm.png)
