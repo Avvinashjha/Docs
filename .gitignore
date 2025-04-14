@@ -31,6 +31,7 @@ venv/
 env/
 ENV/
 env.bak/
+.venv
 
 # Ignore dependency directories
 node_modules/
