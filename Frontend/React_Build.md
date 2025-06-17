@@ -1,3 +1,5 @@
+# What happens when you do `npm run build`
+
 When you build a React app, the process involves transforming your development code into optimized production-ready files that can be deployed to a web server. This process is handled by tools like **Webpack** and **Babel**, which are integrated into the React ecosystem (via `create-react-app` or custom configurations). Let’s break down the entire process step by step, including what happens during the build, the structure of the build files, and how the deployed app works.
 
 ---

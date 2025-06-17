@@ -91,3 +91,8 @@ Redis is an open source, in-memory data structure store, that is widely used as 
     - Manging Redis cluster and ensuring high Availablity can becoe complex in large scale deployments.
 
 In summary, Redis is a powerful, high-performance tool that excels in scenarios requiring fast data access and manipulation. Its versatility and ease of use have made it a popular choice for modern applications, particularly in areas like caching, real-time analytics, and messaging.
+
+
+Must Read:
+- https://medium.com/rtkal/distributed-cache-design-348cbe334df1
+- https://medium.com/p/c74eb702540b#ef1f

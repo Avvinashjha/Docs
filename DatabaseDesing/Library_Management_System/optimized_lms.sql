@@ -67,4 +67,4 @@ CREATE TABLE MembershipDetails (
     Membership_status VARCHAR(20), -- e.g., Active, Inactive, Expired
     FOREIGN KEY (Member_ID) REFERENCES Member(Member_ID),
     FOREIGN KEY (Plan_ID) REFERENCES MembershipPlan(Plan_ID)
-);
+); 
