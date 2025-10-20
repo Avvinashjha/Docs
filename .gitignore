@@ -1,9 +1,12 @@
+
 # General Ignore Rules
 # =====================
 # Ignore OS-specific files
 .DS_Store
 Thumbs.db
-
+temp
+temp*
+*temp*
 # Ignore IDE/editor-specific files
 .vscode/
 .idea/
