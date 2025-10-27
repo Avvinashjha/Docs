@@ -1,0 +1,43 @@
+{
+  "etl_rule_source": "ad_click_test",
+  "use_existing_rules": "None",
+  "rule_db": "flux_test",
+  "alerts_escalation_chain": "nilanjana.l",
+  "job_class": "SimpleBulkBatchJob",
+  "context_class": "BatchContext",
+  "JARS": "hdfs://nameservice1/user/data_admin/nilanjana.l/rule-service-2.4-rc4y.jar,hdfs://nameservice1/var/lib/spark/Database-2.0.jar,hdfs://nameservice1/var/lib/spark/MediaUrlWrapper-0.2.10.jar,hdfs://nameservice1/var/lib/spark/commons-pool2-2.4.2.jar,hdfs://nameservice1/var/lib/spark/jedis-2.8.1.jar,hdfs://nameservice1/var/lib/spark/UserAgentDetection-2.0.jar,hdfs://nameservice1/var/lib/spark/RPMUtils-1.0.8.jar,hdfs://nameservice1/var/lib/spark/hbase-client-1.2.0.jar,hdfs://nameservice1/var/lib/spark/MediaUrl-2.0.1.jar,hdfs://nameservice1/var/lib/ss-shaded-0.8.2.2.jar,hdfs://nameservice1/var/lib/spark/ua-parser-1.3.2-SNAPSHOT-jar-with-dependencies.jar,hdfs://nameservice1/var/lib/spark/mysql-connector-java-5.1.6.jar,hdfs://nameservice1/var/lib/kafka_0010/spark-streaming-kafka-0-10_2.11-2.2.0.jar,hdfs://nameservice1/var/lib/kafka_0010/spark-streaming_2.11-2.2.0.jar,hdfs://nameservice1/var/lib/kafka_0010/kafka-clients-2.5.0.jar,hdfs://nameservice1/var/lib/kafka-graphite-clients-0.10.2.jar",
+  "MAIN_JAR": "hdfs://nameservice1/user/data_admin/nilanjana.l/spark-processing-3.5-rc4y.jar",
+  "METRICS_PATH": "hdfs://nameservice1/prod_code/Data/master/config/metrics.properties/",
+  "DATA_HIVE_CONF_PATH": "/etc/hive/conf",
+  "output_splits": "-1",
+  "splits": "10",
+  "run_script_path": "/user/data_admin/scripts/BatchEdge/run.sh",
+  "executor_memory": "10G",
+  "executor_cores": "6",
+  "start_date": "2019-04-26",
+  "start_time": "00:00",
+  "end_date": "2019-04-27",
+  "end_time": "00:00",
+  "edge_id": "1",
+  "flow_name": "blankFlow",
+  "source": {
+    "path": "/data/camus/cm/ad_click/",
+    "nameNode": "hdfs://nameservice1"
+  },
+  "sink": {
+    "path": "/user/data_admin/liveFlow/",
+    "nameNode": "hdfs://nameservice1"
+  },
+  "business_unit": "cm",
+  "user_name": "data_admin",
+  "queue": "data.spark_batch",
+  "app_name": "blankFlow_BatchEdge_1_2",
+  "hue-link": "http://hue.srv.media.net/oozie/list_oozie_coordinator/6377947-190418095209118-oozie-oozi-C",
+  "flux-link": "http://flux.srv.media.net/?coordinate=c_spark_blankFlow_BatchEdge_1_2",
+  "status": "SUSPENDED",
+  "total-failure-count": "14 / 16",
+  "latest-failure-count": "8 / 10",
+  "last-succeeded-instance": "Never",
+  "output_kafka_cluster": "adc-data-kbbkafka",
+  "cluster": "adc-auto-opt-hadoop"
+}
