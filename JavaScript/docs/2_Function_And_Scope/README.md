@@ -58,6 +58,6 @@ By the end of this module, you’ll understand:
 ## 🧩 Next Steps
 
 After completing this section, move on to the next module:
-👉 **[3_Objects_And_Prototypes](../3_Objects_And_Prototypes/README.md)** (if available)
+👉 **[3_Array](../3_Array/README.md)** (if available)
 
 ---
