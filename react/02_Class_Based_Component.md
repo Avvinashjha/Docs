@@ -36,37 +36,21 @@
    3. [x] Render Props pattern
    4. [x] Container vs Presentational components
 
-5. [ ] Performance Optimization
-   1. [ ] PureComponent and shallow comparison
-   2. [ ] Implementing shouldComponentUpdate()
-   3. [ ] React memoization techniques for class components
-   4. [ ] Lazy loading and code splitting
-   5. [ ] Avoiding unnecessary re-render
+5. [x] Performance Optimization
+   1. [x] PureComponent and shallow comparison
+   2. [x] Implementing shouldComponentUpdate()
+   3. [x] React memoization techniques for class components
+   4. [x] Lazy loading and code splitting
+   5. [x] Avoiding unnecessary re-render
 
-6. [ ] Integrations and Real-world Usage
-   1. [ ] Fetching data in componentDidMount()
-   2. [ ] Using third-party libraries (axios, redux, etc.)
-   3. [ ] Working with forms and validation
-   4. [ ] Using refs (React.createRef() and callback refs)
-   5. [ ] Controlled vs uncontrolled inputs
-   6. [ ] Context API with class components (static contextType, Context.Consumer)
+6. [x] Integrations and Real-world Usage
+   1. [x] Using refs (React.createRef() and callback refs)
+   2. [ ] Context API with class components (static contextType, Context.Consumer)
 
-7. [ ] Migration and Interop
-   1. [ ] Converting class components to functional components with Hooks
-   2. [ ] Using legacy lifecycle methods safely (UNSAFE_ methods)
-   3. [ ] Mixing class and functional components in one project
-
-8. [ ] Testing and Debugging
-   1. [ ] Testing class components (Jest, Enzyme, React Testing Library)
-   2. [ ] Snapshot testing
-   3. [ ] Debugging lifecycle issues
-   4. [ ] Profiling performance
-
-9. [ ] Expert-Level Topics
+7. [ ] Expert-Level Topics
     1. [ ] Custom higher-order components for cross-cutting logic
     2. [ ] Understanding reconciliation and how setState batching works internally
     3. [ ] Controlled side effects and async operations in lifecycle methods
-    4. [ ] Legacy patterns and migration strategies (Hooks, Suspense, etc.)
 
 ---
 
@@ -2858,4 +2842,109 @@ But Remember
 | State lifting/placement   | State lives closer to where it’s needed       | Prevents child re-renders           |
 
 
-#### Strategy 1:  \=
+
+## F. Using Refs in Class Components
+
+### 1. Why Do We need refs
+
+Normally in React,you should avoid touching the DOM directly, React handles it declaratively.
+
+However, there are legitimate cases where refs are useful:
+
+- Focus, text selection, or media playback control
+- Trigger animation or transition
+- Integrating with third party DOM libraries (like D3, Char.js, Leaflet)
+- Storing a component instance for imperative method calls
+
+### 2. Creating Refs
+
+Example
+
+```js
+class InputFocusDemo extends React.Component {
+  constructor(props){
+    super(props);
+    this.inputRef = React.createRef(); // 1. Create ref
+  }
+
+  componentDidMount(){
+    this.inputRef.current.focus(); // 3. Access DOM Node
+  }
+
+  render(){
+    return (
+      <div>
+        {/* 2. Attach the input ref*/}
+        <input ref={this.inputRef} placeholder="Focus on mount" /> 
+      </div>
+    )
+  }
+}
+```
+
+### 3. Point to child class component
+
+```js
+class Child extends React.Component{
+  alertMessage(){
+    alert("Hello from child");
+  }
+
+  render(){
+    return <div> child component</div>;
+  }
+}
+
+class Parent extends React.Component{
+  constructor(props){
+    super(props);
+    this.childRef = React.createRef();
+  }
+
+  handleClick = ()=> {
+    this.childRef.current.alertMessage(); // Access method on child
+  }
+
+  render() {
+    return (
+      <div>
+        <Child ref={this.childRef} />
+        <button onClick={this.handleClick}>Call Child Method</button>
+      </div>
+    );
+  }
+}
+```
+
+- this.childRef.current points to the Child instance, so you can call its methods directly.
+
+### 4. Callback Refs (Older and more flexible)
+
+Before React.createRef, refs were often implemented using callback functions.
+
+```js
+class CallbackRefDemo extends React.Component{
+  setInputRef = (element) => {
+    this.inputElement = element; // assign DOM element manually
+  };
+
+  focusInput = () => {
+    if(this.inputElement) this.inputElement.focus();
+  }
+
+  render() {
+    return (
+      <div>
+        <input ref={this.setInputRef} />
+        <button onClick={this.focusInput}>Focus Input</button>
+      </div>
+    );
+  }
+}
+```
+
+Callback refs:
+
+- Are called with the DOM node when mounted, and null when unmounted
+- Offer more flexibility than createRef (e.g., for conditionally assigning refs)
+- 
