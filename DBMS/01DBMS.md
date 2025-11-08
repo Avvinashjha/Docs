@@ -1,10 +1,12 @@
-### **1. What is a DBMS?**
+## **1. What is a DBMS?**
+
 A **Database Management System (DBMS)** is software that allows users to **create, manage, and interact with databases**. It provides an organized way to store, retrieve, update, and delete data efficiently.
 
 - **Database**: A structured collection of data.
 - **DBMS**: The software that manages the database.
 
 **Key Functions of a DBMS**:
+
 - Data storage, retrieval, and update.
 - User access control.
 - Data integrity and security.
@@ -15,6 +17,7 @@ A **Database Management System (DBMS)** is software that allows users to **creat
 ---
 
 ### **2. Difference Between DBMS and File Systems**
+
 | **Aspect**              | **DBMS**                                      | **File System**                              |
 |--------------------------|-----------------------------------------------|---------------------------------------------|
 | **Data Redundancy**      | Minimized through normalization.             | High redundancy (same data stored multiple times). |
@@ -28,6 +31,7 @@ A **Database Management System (DBMS)** is software that allows users to **creat
 ---
 
 ### **3. Advantages of DBMS**
+
 1. **Data Sharing**:
    - Multiple users can access the same database simultaneously.
 2. **Data Integrity**:
@@ -46,6 +50,7 @@ A **Database Management System (DBMS)** is software that allows users to **creat
 ---
 
 ### **4. Applications of DBMS**
+
 DBMS is used in almost every industry where data management is required. Some common applications include:
 
 1. **Banking**:
@@ -66,15 +71,18 @@ DBMS is used in almost every industry where data management is required. Some co
 ---
 
 ### **5. Types of DBMS**
+
 DBMS can be categorized into several types based on their data models and use cases:
 
-#### **1. Relational DBMS (RDBMS)**:
+#### **1. Relational DBMS (RDBMS)**
+
 - Stores data in **tables** (rows and columns).
 - Uses **SQL (Structured Query Language)** for querying.
 - Ensures data integrity using constraints (e.g., primary key, foreign key).
 - Examples: MySQL, PostgreSQL, Oracle, SQL Server.
 
-#### **2. NoSQL DBMS**:
+#### **2. NoSQL DBMS**
+
 - Handles **unstructured or semi-structured data**.
 - Designed for scalability and flexibility.
 - Types:
@@ -83,12 +91,14 @@ DBMS can be categorized into several types based on their data models and use ca
   - **Column-Based**: Stores data in columns instead of rows (e.g., Cassandra).
   - **Graph-Based**: Stores data in nodes and edges (e.g., Neo4j).
 
-#### **3. Hierarchical DBMS**:
+#### **3. Hierarchical DBMS**
+
 - Organizes data in a **tree-like structure**.
 - Parent-child relationships between data.
 - Example: IBM Information Management System (IMS).
 
-#### **4. Network DBMS**:
+#### **4. Network DBMS**
+
 - Organizes data in a **graph-like structure**.
 - Allows many-to-many relationships.
 - Example: IDMS (Integrated Database Management System).
@@ -96,6 +106,7 @@ DBMS can be categorized into several types based on their data models and use ca
 ---
 
 ### **Summary**
+
 - A **DBMS** is software that manages databases efficiently.
 - It offers advantages like **data sharing, integrity, security, and reduced redundancy** over traditional file systems.
 - DBMS is widely used in industries like banking, healthcare, e-commerce, and more.

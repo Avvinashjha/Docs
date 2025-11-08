@@ -3,9 +3,11 @@
 ---
 
 #### **1. Setting Up a DBMS**
+
 1. **Installation**:
    - Install a DBMS like MySQL, PostgreSQL, or MongoDB.
    - Example: Install MySQL on Ubuntu:
+
      ```bash
      sudo apt-get update
      sudo apt-get install mysql-server
@@ -18,6 +20,7 @@
 ---
 
 #### **2. Designing and Implementing a Database**
+
 1. **Requirements Analysis**:
    - Understand the data requirements and use cases.
 
@@ -27,6 +30,7 @@
 3. **Implementation**:
    - Create tables, indexes, and constraints.
    - Example:
+
      ```sql
      CREATE TABLE Student (
          ID INT PRIMARY KEY,
@@ -38,9 +42,11 @@
 ---
 
 #### **3. Writing Complex Queries**
+
 1. **Joins**:
    - Combine data from multiple tables.
    - Example:
+
      ```sql
      SELECT Student.Name, Course.Title
      FROM Student
@@ -51,6 +57,7 @@
 2. **Subqueries**:
    - Nested queries for complex data retrieval.
    - Example:
+
      ```sql
      SELECT Name FROM Student
      WHERE Age = (SELECT MAX(Age) FROM Student);
@@ -59,6 +66,7 @@
 3. **Aggregate Functions**:
    - Perform calculations on data.
    - Example:
+
      ```sql
      SELECT AVG(Age) FROM Student;
      ```
@@ -66,9 +74,11 @@
 ---
 
 #### **4. Performance Tuning**
+
 1. **Indexing**:
    - Create indexes to speed up queries.
    - Example:
+
      ```sql
      CREATE INDEX idx_name ON Student (Name);
      ```
@@ -80,6 +90,7 @@
 ---
 
 #### **5. Real-World Projects**
+
 1. **E-Commerce Database**:
    - Design and implement a database for an online store.
    - Example: Tables for `Products`, `Customers`, `Orders`.
@@ -95,6 +106,7 @@
 ---
 
 #### **6. Tools for Database Management**
+
 1. **DBMS Tools**:
    - MySQL Workbench, pgAdmin, MongoDB Compass.
 
@@ -107,6 +119,7 @@
 ---
 
 ### **Summary**
+
 - **Setting Up a DBMS**: Installation and configuration.
 - **Designing and Implementing a Database**: Requirements analysis, design, and implementation.
 - **Writing Complex Queries**: Joins, subqueries, aggregate functions.

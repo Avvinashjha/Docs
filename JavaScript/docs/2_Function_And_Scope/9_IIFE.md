@@ -9,6 +9,7 @@ Syntax
   //code runs immediately
 })();
 ```
+
 You can think of it as, Define a function → run it right away.
 
 ### 1. The Basic IIFE Example
@@ -18,11 +19,13 @@ You can think of it as, Define a function → run it right away.
   console.log("IIFE runs immediately!");
 })();
 ```
+
 Output:
 
 ```js
 IIFE runs immediately!
 ```
+
 This function executes as soon as it’s defined, without needing to be called separately.
 
 ### 2. Why the Parentheses?
@@ -34,6 +37,7 @@ So if you write
 ```js
 function (){console.log("hi);}() // syntax error
 ```
+
 JS expects a function name (declaration), not immediate invocation.
 
 Wrapping in parentheses makes it an expression:
@@ -43,6 +47,7 @@ Wrapping in parentheses makes it an expression:
   console.log("Hi");
 })();
 ```
+
 ### 3. Alternative Syntaxes
 
 All of these are valid IIFEs:
@@ -54,6 +59,7 @@ All of these are valid IIFEs:
 !function(){console.log("D")}();//Rare, but valid
 +function(){ console.log("E");}();// Rare, also valid
 ```
+
 Parentheses or unary Operator (!, +, ~) are just ways to force JavaScript to treat it as an expression.
 
 ### 4. Why Use IIFEs?
@@ -67,6 +73,7 @@ Global Variables pollute the namespace.
 ```js
 var count = 0;
 ```
+
 Solution:
 
 Wrap in an IIFE to isolate:
@@ -78,6 +85,7 @@ Wrap in an IIFE to isolate:
 })();
 console.log(typeof count); // undefined
 ```
+
 So code inside the IIFE can use variable privately without affecting global.
 
 ### 5. IIFE + Closures (Private State)
@@ -97,6 +105,7 @@ counter.inc();
 console.log(counter.get()); // 2
 console.log(counter.count); // undefined (private)
 ```
+
 This is the foundation of the **Module Pattern** used in pre-ES6 JavaScript and many libraries (like jQuery).
 
 ### 6. IIFE with Parameters
@@ -108,6 +117,7 @@ You can pass arguments into an IIFE:
   console.log(`Hello, ${name}!`);
 })("Avinash");// Hello, Avinash!
 ```
+
 ### 7. IIFE in Modern JavaScript (Still Useful!)
 
 Even though ES6 introduced **modules**, IIFEs still have valid use cases:
@@ -125,6 +135,7 @@ Example
   console.log("App initialized!");
 })();
 ```
+
 ### 8. IIFE with Async/Await
 
 You can use async IIFEs for **top-level async code**, especially in environments that don’t support top-level `await`.
@@ -136,6 +147,7 @@ You can use async IIFEs for **top-level async code**, especially in environments
   console.log(json);
 })();
 ```
+
 This is a common pattern in Node.js and frontend bootstrapping code.
 
 ### 9. Named IIFE (for Debugging)
@@ -147,6 +159,7 @@ Naming the IIFE helps with stack traces and debugging:
   console.log("App starting...");
 })();
 ```
+
 While anonymous IIFEs are shorter, **named IIFEs** make logs and stack traces clearer in production systems.
 
 ### 10. Combining IIFEs with Module Patterns
@@ -163,6 +176,7 @@ const UserModule = (function() {
 UserModule.add("Alice");
 console.log(UserModule.list()); // [ 'Alice' ]
 ```
+
 This pattern isolates internal state and exposes only what’s needed, exactly how modern ES6 modules or React hooks work under the hood.
 
 ### 11. Summary

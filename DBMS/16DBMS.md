@@ -3,6 +3,7 @@
 ---
 
 #### **1. Books**
+
 1. **"Database System Concepts" by Abraham Silberschatz**:
    - A comprehensive textbook covering fundamental and advanced database concepts.
 
@@ -15,6 +16,7 @@
 ---
 
 #### **2. Online Courses**
+
 1. **Coursera**:
    - "Database Management Essentials" by the University of Colorado.
    - "SQL for Data Science" by the University of California, Davis.
@@ -30,6 +32,7 @@
 ---
 
 #### **3. Practice Platforms**
+
 1. **LeetCode**:
    - Practice SQL queries and database problems.
    - Website: [https://leetcode.com](https://leetcode.com)
@@ -45,6 +48,7 @@
 ---
 
 #### **4. Documentation and Tutorials**
+
 1. **MySQL Documentation**:
    - Official documentation for MySQL.
    - Website: [https://dev.mysql.com/doc](https://dev.mysql.com/doc)
@@ -60,6 +64,7 @@
 ---
 
 #### **5. Communities and Forums**
+
 1. **Stack Overflow**:
    - Ask questions and get answers from the community.
    - Website: [https://stackoverflow.com](https://stackoverflow.com)
@@ -75,6 +80,7 @@
 ---
 
 ### **Summary**
+
 - **Books**: Comprehensive textbooks and guides.
 - **Online Courses**: Structured learning from top universities and instructors.
 - **Practice Platforms**: Interactive platforms for hands-on practice.

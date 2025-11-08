@@ -12,6 +12,7 @@ console.log(x); // undefined
 var x = 5;
 console.log(x); // 5
 ```
+
 Behind the scenes, JavaScript interprets this as
 
 ```js
@@ -20,6 +21,7 @@ console.log(x);
 x = 5;
 console.log(x);
 ```
+
 Only the declaration (var x) is hoisted, not the initialization.
 
 ### 2. Function Hoisting
@@ -32,12 +34,14 @@ function gree(){
   console.log("Hi there");
 }
 ```
+
 After hoisting JS Interprets it as
 
 ```js
 function gree(){console.log("Hi there");}
 gree(); // HI There
 ```
+
 ### 3. Function Expression Hoisting
 
 Function expressions ( and arrow functions) are not fully hoisted, only the variable name is hoisted (if declared with var), not the function assignment.
@@ -48,6 +52,7 @@ var sayHI = function(){
   console.log("Hi");
 }
 ```
+
 Why?
 
 Because during hoisting
@@ -57,6 +62,7 @@ var sayHi;
 sayHi(); // sayHi is a var and it's undefined
 sayHi = function(){...}
 ```
+
 ### 4. Hoisting with let and const
 
 let and const are hoisted , but they’re not initialized until the declaration is evaluated. This creates the TDZ( Temporal Dead Zone).
@@ -65,6 +71,7 @@ let and const are hoisted , but they’re not initialized until the declaration 
 console.log(x);
 let x = 10;
 ```
+
 So even though a is technically hoisted, it’s in a dead zone until execution reaches the declaration line.
 
 ### 5. var vs let/const Hoisting
@@ -85,12 +92,14 @@ function foo(){return "Function";}
 var foo = "Variable";
 console.log(foo);// "Variable"
 ```
+
 Behind the scenes
 
 - The Function is hoisted first.
 - The `var foo` declaration is hoisted but does not overwrite the function
 - The assignment `foo = "variable"` happens at run time
 - After assignment you will not be able to call the foo(), `TypeError: foo is not a function`
+
 ### 7. Hoisting Inside Function
 
 Hoisting applies inside every scope, not just globally.
@@ -103,6 +112,7 @@ function demo() {
 }
 demo();
 ```
+
 Evaluated to:
 
 ```js
@@ -113,6 +123,7 @@ function demo() {
   console.log(x);
 }
 ```
+
 Each Function has its own hoisting.
 
 ### 8. Hoisting and Arrow Functions
@@ -123,6 +134,7 @@ Arrow function are like function expression, they are not hoisted with their bod
 sayHi(); // Reference error
 const sayHi = ()=> console.log("Hi");
 ```
+
 `const` + arrow = no initialization before declaration → TDZ → `ReferenceError`
 
 ### 9. Complex Hoisting Order Example
@@ -137,6 +149,7 @@ function test() {
 test();
 console.log(x); // 1
 ```
+
 Why undefined first?
 
 Inside the function, a new local `x` (var) is hoisted.
@@ -149,6 +162,7 @@ function test() {
   console.log(x); // 2
 }
 ```
+
 So the inner `x` shadows the global `x`.
 
 ### 10. Hoisting + TDZ Example
@@ -159,19 +173,21 @@ So the inner `x` shadows the global `x`.
   let value = 5;
 }
 ```
+
 Between the start of the block `{` and the actual `let value = 5;` line,
 
 the variable exists but is in the **Temporary Dead Zone** (TDZ).
 
->Q. Does JavaScript hoist variables?<br>
+>Q. Does JavaScript hoist variables?
+>
 >Yes, all declarations (`var`, `let`, `const`, `function`) are hoisted. But only `var` and `function` are _initialized_ at compile time.
 
-
->Q. Why do we say arrow functions are not hoisted?<br>
+>Q. Why do we say arrow functions are not hoisted?
+>
 >Because they’re stored in variables (`let`/`const`) that are hoisted _without initialization_, so calling them before definition throws an error.
 
-
->Q. In what order are functions and variables hoisted?<br>
+>Q. In what order are functions and variables hoisted?
+>
 >Function declarations first, then variable declarations (without assignments).
 
 ### 11. Best Practices

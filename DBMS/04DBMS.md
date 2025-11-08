@@ -1,10 +1,11 @@
-### **4. Relational Database Concepts**
+## **4. Relational Database Concepts**
 
 Relational databases are based on the **relational model**, which organizes data into tables (relations). Let’s break this down into subtopics:
 
 ---
 
 #### **1. Tables, Rows, and Columns**
+
 - **Table (Relation)**:
   - A collection of related data organized into rows and columns.
   - Example: A `Student` table.
@@ -16,6 +17,7 @@ Relational databases are based on the **relational model**, which organizes data
   - Example: `ID`, `Name`, `Age`.
 
 **Example Table**:
+
 ```
 +----+--------+-----+
 | ID | Name   | Age |
@@ -29,6 +31,7 @@ Relational databases are based on the **relational model**, which organizes data
 ---
 
 #### **2. Keys**
+
 Keys are used to uniquely identify rows and establish relationships between tables.
 
 1. **Primary Key**:
@@ -55,6 +58,7 @@ Keys are used to uniquely identify rows and establish relationships between tabl
 ---
 
 #### **3. Integrity Constraints**
+
 Integrity constraints ensure the accuracy and consistency of data in a database.
 
 1. **Entity Integrity**:
@@ -72,9 +76,11 @@ Integrity constraints ensure the accuracy and consistency of data in a database.
 ---
 
 #### **4. Relational Algebra**
+
 Relational algebra is a theoretical framework for querying relational databases. It consists of a set of operations that take one or more relations (tables) as input and produce a new relation as output.
 
 **Basic Operations**:
+
 1. **Selection (σ)**:
    - Selects rows that satisfy a condition.
    - Example: `σ(Age > 20)(Student)` selects students older than 20.
@@ -102,22 +108,26 @@ Relational algebra is a theoretical framework for querying relational databases.
 ---
 
 #### **5. Example Queries**
+
 Here are some examples of relational algebra operations:
 
 1. **Selection**:
    - Select students older than 20:
+
      ```
      σ(Age > 20)(Student)
      ```
 
 2. **Projection**:
    - Retrieve only `Name` and `Age`:
+
      ```
      π(Name, Age)(Student)
      ```
 
 3. **Join**:
    - Join `Student` and `Enrollment` on `StudentID`:
+
      ```
      Student ⨝(Student.ID = Enrollment.StudentID) Enrollment
      ```
@@ -125,6 +135,7 @@ Here are some examples of relational algebra operations:
 ---
 
 ### **Summary**
+
 - **Tables, Rows, and Columns**: Basic structure of relational databases.
 - **Keys**: Primary key, foreign key, candidate key, super key, composite key.
 - **Integrity Constraints**: Entity, referential, and domain integrity.

@@ -5,6 +5,7 @@ Database security involves protecting the database from unauthorized access, mis
 ---
 
 #### **1. Security Threats**
+
 1. **Unauthorized Access**:
    - Access by users who do not have permission.
 
@@ -20,6 +21,7 @@ Database security involves protecting the database from unauthorized access, mis
 ---
 
 #### **2. Authorization**
+
 1. **Roles and Privileges**:
    - **Roles**: Groups of users with similar access needs.
    - **Privileges**: Permissions granted to roles or users.
@@ -35,6 +37,7 @@ Database security involves protecting the database from unauthorized access, mis
 ---
 
 #### **3. Encryption and Decryption**
+
 1. **Data Encryption**:
    - Encrypts data to protect it from unauthorized access.
    - Example: Encrypt sensitive data like passwords.
@@ -45,6 +48,7 @@ Database security involves protecting the database from unauthorized access, mis
 ---
 
 ### **Summary**
+
 - **Security Threats**: Unauthorized access, data breaches, SQL injection, DoS.
 - **Authorization**: Roles, privileges, access control, audit trails.
 - **Encryption**: Protects data at rest and in transit.

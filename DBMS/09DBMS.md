@@ -5,6 +5,7 @@ Query processing involves translating a high-level query (e.g., SQL) into an eff
 ---
 
 #### **1. Query Processing Steps**
+
 1. **Parsing and Translation**:
    - The query is parsed to check for syntax errors and translated into an internal form (e.g., relational algebra).
 
@@ -17,6 +18,7 @@ Query processing involves translating a high-level query (e.g., SQL) into an eff
 ---
 
 #### **2. Query Optimization Techniques**
+
 1. **Heuristic Optimization**:
    - Uses rules of thumb to optimize queries.
    - Example: Perform selection operations before join operations.
@@ -32,12 +34,15 @@ Query processing involves translating a high-level query (e.g., SQL) into an eff
 ---
 
 #### **3. Example of Query Optimization**
+
 Consider the following query:
+
 ```sql
 SELECT Name FROM Student WHERE Age > 20 AND Department = 'CS';
 ```
 
 **Optimization Steps**:
+
 1. **Rewrite the Query**:
    - Use indexes on `Age` and `Department`.
    - Example: `SELECT Name FROM Student WHERE Department = 'CS' AND Age > 20;`
@@ -51,6 +56,7 @@ SELECT Name FROM Student WHERE Age > 20 AND Department = 'CS';
 ---
 
 ### **Summary**
+
 - **Query Processing**: Parsing, optimization, and execution.
 - **Query Optimization**: Heuristic and cost-based techniques to choose the best execution plan.
 - **Execution Plans**: Step-by-step plans for executing queries efficiently.

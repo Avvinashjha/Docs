@@ -5,6 +5,7 @@ A **distributed database** is a collection of multiple, logically interrelated d
 ---
 
 #### **1. Distributed Database Concepts**
+
 1. **Fragmentation**:
    - Dividing a database into smaller parts (fragments) that are stored on different nodes.
    - Types:
@@ -28,7 +29,9 @@ A **distributed database** is a collection of multiple, logically interrelated d
 ---
 
 #### **2. Example of a Distributed Database**
+
 Consider a distributed database for a global e-commerce platform:
+
 - **Fragmentation**: Customer data is horizontally fragmented by region (e.g., North America, Europe).
 - **Replication**: Product catalog is replicated across all regions for faster access.
 - **Transaction Management**: Orders are processed using a two-phase commit protocol to ensure consistency.
@@ -36,6 +39,7 @@ Consider a distributed database for a global e-commerce platform:
 ---
 
 ### **Summary**
+
 - **Fragmentation**: Dividing data into smaller parts (horizontal, vertical, mixed).
 - **Replication**: Storing multiple copies of data for fault tolerance and faster access.
 - **Distributed Transaction Management**: Ensuring consistency across multiple nodes.

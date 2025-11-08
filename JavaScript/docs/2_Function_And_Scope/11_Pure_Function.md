@@ -9,6 +9,7 @@ In other words:
 - No **randomness**, **time**, or **I/O** influence
 
 ### 1. Example of an Impure function
+
 ```js
 let count = 0;
 function increment(){
@@ -17,10 +18,13 @@ function increment(){
 }
 console.log(incement()); // depends on external variable
 ```
+
 - Depends on count (external state)
 - Changes that variable (side effect)
 - so it’s impure
+
 ### 2. Example of Pure Function
+
 ```js
 function add(a, b){
   return a+b;
@@ -28,18 +32,22 @@ function add(a, b){
 console.log(add(3,2)); //5
 console.log(add(3,2)); // 5 same input - same output
 ```
+
 - It depends only on it arguments.
 - It does not modify anything outside itself.
 - So it’s pure
+
 ### 3. Two Code Rules of Purity
+
 1. Deterministic Output
-    
+
     Same input → same output
 
 ```js
 square(2) === square(2) // true -> Pure
 Math.random() === Math.random() //false -> Impure
 ```
+
 2. No Side Effects
 
     Does not modify external data, global state, DOM or Perform I/O
@@ -55,7 +63,9 @@ function addItemPure(arr, item){
   return [...arr, item];
 }
 ```
+
 ### 4. What are Side Effects
+
   Side effects are any observable interaction with the outside world other than returning a value.
 
 Examples:
@@ -72,6 +82,7 @@ function multiply(a,b){
   return a*b;
 }
 ```
+
 Impure:
 
 ```js
@@ -80,7 +91,9 @@ function multiplyAndLog(a, b) {
   return a * b;
 }
 ```
+
 ### 5. Benefits of Pure Function
+
 |   **Benefit** |   **Description** |
 | --- | --- |
 |   Predictable |   Same input → same output |
@@ -92,6 +105,7 @@ function multiplyAndLog(a, b) {
   Pure functions are the backbone of **functional programming** and **React’s philosophy** (pure UI = function of state).
 
 ### 6. Referential Transparency
+
 A key property of pure functions. A function is _referentially transparent_ if it can be replaced with its output value **without changing the behavior of the program**.
 
 Example:
@@ -100,13 +114,16 @@ Example:
 const result = add(2,3); //5
 //You can safely replace add(2,3) with 5 everywhere.
 ```
+
 Impure function breaks this property:
 
 ```js
 const result = getTime(); // depends on now
 // can not replace with a fixed value
 ```
+
 ### 7. Avoiding Mutation (Immutability)
+
 Pure functions **never mutate input data** — instead, they return a _new_ copy.
 
 Example:
@@ -126,7 +143,9 @@ const newNums = addItem(nums, 3);
 console.log(nums); // [1, 2]
 console.log(newNums); // [1, 2, 3]
 ```
+
 ### 8. Pure Functions in React
+
 React components are **pure** by design, A component should render the same output for the same props.
 
 Example:
@@ -136,12 +155,14 @@ function Greeting({ name }) {
   return <h1>Hello, {name}!</h1>;
 }
 ```
+
 Given the same `name`, it always renders the same result — no side effects.
 
 ### 9. When Impurity Is Necessary
+
 Not all impurity is bad, sometimes side effects are **necessary** (e.g., logging, network requests, DOM updates).
 
-The Key idea is to** Isolate side effects,** keep impure logic at the boundaries, pure logic in the core.
+The Key idea is to**Isolate side effects,** keep impure logic at the boundaries, pure logic in the core.
 
 Example pattern:
 
@@ -154,9 +175,11 @@ function showTotal(price, taxRate) {
   console.log(`Total: ${total}`); // impure (I/O)
 }
 ```
+
 Here, computation (pure) and effect (impure) are **cleanly separated**.
 
 ### 10. Composing Pure Functions
+
 Pure functions combine beautifully — this is **function composition**.
 
 ```js
@@ -165,10 +188,13 @@ const square = x => x * x;
 const doubleThenSquare = x => square(double(x));
 console.log(doubleThenSquare(3)); // 36
 ```
+
 - Predictable
 - No side effects
 - Easy to reason about and test
+
 ### 11. Summary
+
 |   **Concept** |   **Description** |
 | --- | --- |
 |   Pure Function |   Always same output for same input, no side effects |

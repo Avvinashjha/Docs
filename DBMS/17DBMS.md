@@ -4,6 +4,7 @@
 ---
 
 #### **1. Building a Small Database System**
+
 1. **Student Management System**:
    - Design and implement a database to manage student records, courses, and enrollments.
    - Example Tables:
@@ -29,6 +30,7 @@
 ---
 
 #### **2. Analyzing Real-World Database Designs**
+
 1. **Amazon**:
    - Analyze how Amazon manages its product catalog, customer data, and orders.
    - Example: Tables for `Products`, `Customers`, `Orders`, `Reviews`.
@@ -44,6 +46,7 @@
 ---
 
 #### **3. Optimizing Queries for Performance**
+
 1. **Query Optimization**:
    - Analyze and optimize slow-running queries.
    - Example: Use `EXPLAIN` in MySQL to identify bottlenecks.
@@ -59,6 +62,7 @@
 ---
 
 #### **4. Migrating a Relational Database to a NoSQL Database**
+
 1. **Assessment**:
    - Evaluate the existing relational database and identify tables suitable for NoSQL.
 
@@ -72,6 +76,7 @@
 ---
 
 ### **Summary**
+
 - **Building a Small Database System**: Student management, library management, e-commerce.
 - **Analyzing Real-World Database Designs**: Amazon, Netflix, social media platforms.
 - **Optimizing Queries for Performance**: Query optimization, indexing, partitioning.

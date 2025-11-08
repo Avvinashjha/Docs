@@ -1,3 +1,5 @@
+#
+
 ## 3. Function Parameters & Default Values
 
 ### 1. Basic Function Parameters
@@ -100,7 +102,7 @@ Default parameters pair beautifully with destructuring, especially for configura
 function createUser({name="Guest", age=18, active=true}) = {}) {
   console.log(name, age, active);
 }
-createUser({name: "Avinash", age: 21});// Avinas 21 true
+createUser({name: "Avinash", age: 21});// Avinash 21 true
 createUser();// guest, 18, true
 ```
 
@@ -132,7 +134,7 @@ log("info", "server started", "port 9000");
 
 ### 8. Default values + Rest Parameters
 
-Default values work fine alongside rest prameters.
+Default values work fine alongside rest parameters.
 
 ```js
 function greetAll(greeting="Hi", ...names){
@@ -182,4 +184,5 @@ compute(); // 9.332621544394418e+157 this might take time
 ```
 
 >Q. When are default parameter value evaluated?
+>
 >- At call time and only if the argument is undefined.

@@ -5,6 +5,7 @@ Backup and recovery strategies are essential for protecting data from loss and e
 ---
 
 #### **1. Types of Failures**
+
 1. **Transaction Failure**:
    - A transaction cannot complete due to errors (e.g., deadlock, constraint violation).
 
@@ -17,6 +18,7 @@ Backup and recovery strategies are essential for protecting data from loss and e
 ---
 
 #### **2. Backup Techniques**
+
 1. **Full Backup**:
    - Backs up the entire database.
    - Example: `BACKUP DATABASE StudentDB TO DISK = 'C:\backup.bak';`
@@ -32,6 +34,7 @@ Backup and recovery strategies are essential for protecting data from loss and e
 ---
 
 #### **3. Recovery Techniques**
+
 1. **Log-Based Recovery**:
    - Uses transaction logs to restore the database to a consistent state.
    - Example: `RESTORE DATABASE StudentDB FROM DISK = 'C:\backup.bak' WITH RECOVERY;`
@@ -46,6 +49,7 @@ Backup and recovery strategies are essential for protecting data from loss and e
 ---
 
 ### **Summary**
+
 - **Types of Failures**: Transaction, system, media.
 - **Backup Techniques**: Full, incremental, differential.
 - **Recovery Techniques**: Log-based, checkpointing, shadow paging.

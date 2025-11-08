@@ -1,6 +1,6 @@
 ## H. Closures
 
-A **closure** is created when a function “remembers” and can** access variables from it’s outer scope** even after the outer function has returned.
+A **closure** is created when a function “remembers” and can**access variables from it’s outer scope** even after the outer function has returned.
 
 In simple terms, **A closure fives a function persistent access to it’s surrounding(lexical) scope.**
 
@@ -17,6 +17,7 @@ function outer(){
 const greet = outer(); // Outer has finished execution
 greet(); // Hello!
 ```
+
 Even though `outer()` finished running, `inner()` still has access to the `message` because it closed over the scope.
 
 greet holds a **closure**, a combination of function inner + its **lexical environment.**
@@ -41,6 +42,7 @@ function outer(){
 const fn = outer();
 fn(); // 30
 ```
+
 Even though `fn` is called in the global scope, it “remembers” both `x` and `y`.
 
 ### 4. Real-World Example - Data Privacy
@@ -63,6 +65,7 @@ counter.getValue();
 console.log(counter,getValue());// 0
 console.log(counter.count);// undefined private
 ```
+
 This is the foundation of **Module pattern** and Modern **React Hook design**.
 
 ### 5. Closure and State Persistence
@@ -79,6 +82,7 @@ console.log(inc()); // 1
 console.log(inc()); // 2
 console.log(inc()); // 3
 ```
+
 Even though counter() executed once, value persists because it’s enclosed in the returned function.
 
 ### 6. Multiple Closures Have Independent State
@@ -96,6 +100,7 @@ c1(); // 1
 c1(); // 2
 c2(); // 1
 ```
+
 Each `makeCounter()` call creates a separate lexical environment, isolated from others.
 
 ### 7. Closure Inside Loops (Classing Pitfall)
@@ -107,6 +112,7 @@ for(var i = 0; i <= 3; i++){
   setTimeout(()=> console.log(i), 1000);
 }
 ```
+
 Output:
 
 ```js
@@ -114,6 +120,7 @@ Output:
 4
 4
 ```
+
 Why?
 
 Because var is a function scoped, not blocked scoped, so all callbacks share same i ( which becomes 4 after the loop)
@@ -125,6 +132,7 @@ for(let i = 0; i<= 3; i++){
   setTimeout(()=>console.log(i), 1000);
 }
 ```
+
 Now Output:
 
 ```js
@@ -132,6 +140,7 @@ Now Output:
 2
 3
 ```
+
 Each iteration will get it’s own closure with a new i.
 
 ### 8. Using Closure for Function Factories
@@ -149,6 +158,7 @@ const triple = multiplier(3);
 console.log(double(4));//8
 console.log(triple(4)); //12 
 ```
+
 double and triple remember their unique factor value via closures.
 
 ### 9. Closure Memory and Garbage Collection
@@ -164,6 +174,7 @@ const fn = outer();
 fn(); // uses data
 // when fn = null ->  data is garbage-collected
 ```
+
 JS engine are smart, They don’t leak memory as long as unused closures are dereferenced.
 
 ### 10. Common Use Cases
@@ -189,14 +200,11 @@ JS engine are smart, They don’t leak memory as long as unused closures are der
 >Q. What is closure?<br>
 A closure is a function that retains access to variables from its lexical scope, even after that scope has exited.
 
-
 >Q. Why are closures useful?<br>
 They enable **data privacy**, **persistent state**, and **function customization** — critical for advanced patterns like hooks, memoization, and currying.
 
-
 >Q. Do closures cause memory leaks?<br>
 Not inherently. They only keep variables alive while the closure is referenced. Garbage collection cleans up once it’s no longer reachable.
-
 
 >Q. How does lexical scoping relate to closures?<br>
 Closures _depend on_ lexical scoping — because they capture variables based on where they’re **defined**, not where they’re **called**.

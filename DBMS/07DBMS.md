@@ -5,6 +5,7 @@ A **transaction** is a sequence of operations performed as a single logical unit
 ---
 
 #### **1. Transaction Concepts**
+
 1. **ACID Properties**:
    - **Atomicity**: A transaction is all-or-nothing. If any part fails, the entire transaction is rolled back.
    - **Consistency**: A transaction brings the database from one valid state to another.
@@ -21,6 +22,7 @@ A **transaction** is a sequence of operations performed as a single logical unit
 ---
 
 #### **2. Concurrency Control**
+
 Concurrency control ensures that multiple transactions can execute simultaneously without leading to inconsistencies.
 
 1. **Problems Due to Concurrency**:
@@ -50,6 +52,7 @@ Concurrency control ensures that multiple transactions can execute simultaneousl
 ---
 
 #### **3. Isolation Levels**
+
 Isolation levels define how transactions interact with each other.
 
 1. **Read Uncommitted**:
@@ -72,6 +75,7 @@ Isolation levels define how transactions interact with each other.
 ---
 
 #### **4. Example of a Transaction**
+
 ```sql
 BEGIN TRANSACTION;
 
@@ -92,6 +96,7 @@ COMMIT;
 ---
 
 ### **Summary**
+
 - **Transactions**: A sequence of operations with ACID properties.
 - **Concurrency Control**: Ensures consistency in multi-user environments.
   - Problems: Lost update, dirty read, unrepeatable read, phantom read.

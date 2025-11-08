@@ -1,3 +1,5 @@
+#
+
 ## B. Arrow Functions
 
 Introduce in **ES6 (ECMAScript 2015)**, arrow function provide a **shorter syntax** for writing function expression and a lexical bound `this`, unlike traditional functions.
@@ -196,7 +198,7 @@ const obj = {
 }
 ```
 
-    - Implicit return with objects
+- Implicit return with objects
 
 ```js
 const getUser = () => {name: "Avinas"}; // undefined
@@ -214,7 +216,6 @@ const fn = () => console.log(arguments); // Ref Error
 Arrow functions are not inherently faster or slower — JS engines optimize both similarly. However, their **lexical `this`** can avoid unnecessary `.bind(this)` calls, improving clarity and reducing function creation overhead in callbacks.
 
 > Q. What’s the main difference between a regular function and an arrow function in terms of `this`?
+>
 >- Regular functions define their own `this` depending on how they’re called.
 >- Arrow functions capture `this` lexically from the surrounding scope where they are defined
-
-

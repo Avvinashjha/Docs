@@ -1,10 +1,11 @@
-### **2. Database Architecture**
+## **2. Database Architecture**
 
 Database architecture refers to the design and structure of a database system. It defines how data is stored, organized, and accessed. The most common architecture is the **3-Tier Architecture**, which separates the database system into three levels.
 
 ---
 
 #### **1. 3-Tier Architecture**
+
 The 3-tier architecture divides the database system into three levels of abstraction:
 
 1. **External Level (View Level)**:
@@ -28,6 +29,7 @@ The 3-tier architecture divides the database system into three levels of abstrac
 ---
 
 #### **2. Database Schema and Instance**
+
 - **Schema**:
   - The **logical structure** of the database.
   - Defines tables, columns, data types, constraints, and relationships.
@@ -47,6 +49,7 @@ The 3-tier architecture divides the database system into three levels of abstrac
 ---
 
 #### **3. Data Independence**
+
 Data independence allows changes to the database schema at one level without affecting the schema at another level. There are two types of data independence:
 
 1. **Logical Data Independence**:
@@ -60,6 +63,7 @@ Data independence allows changes to the database schema at one level without aff
 ---
 
 ### **Summary**
+
 - **3-Tier Architecture**:
   - **External Level**: User-facing views.
   - **Conceptual Level**: Logical structure of the database.
@@ -69,9 +73,11 @@ Data independence allows changes to the database schema at one level without aff
 - **Data Independence**:
   - **Logical**: Changes to conceptual schema do not affect external schema.
   - **Physical**: Changes to internal schema do not affect conceptual schema.
+
 ---
 
 ### **1. 3-Tier Architecture Diagram**
+
 Here’s how you can visualize the **3-Tier Architecture**:
 
 ```
@@ -86,6 +92,7 @@ Here’s how you can visualize the **3-Tier Architecture**:
 ```
 
 **Explanation**:
+
 - **External Level**: Represents different views for different users.
 - **Conceptual Level**: Defines the logical structure of the database.
 - **Internal Level**: Handles the physical storage of data.
@@ -93,9 +100,11 @@ Here’s how you can visualize the **3-Tier Architecture**:
 ---
 
 ### **2. Schema vs. Instance Diagram**
+
 Here’s how you can visualize the difference between **Schema** and **Instance**:
 
-#### **Schema**:
+#### **Schema**
+
 ```
 +-------------------+
 |   Student Table   |
@@ -106,7 +115,8 @@ Here’s how you can visualize the difference between **Schema** and **Instance*
 +-------------------+
 ```
 
-#### **Instance**:
+#### **Instance**
+
 ```
 +----+--------+------------+
 | ID | Name   | Department |
@@ -118,12 +128,14 @@ Here’s how you can visualize the difference between **Schema** and **Instance*
 ```
 
 **Explanation**:
+
 - **Schema**: Defines the structure (columns, data types, constraints).
 - **Instance**: Contains the actual data (rows).
 
 ---
 
 ### **3. Data Independence Diagram**
+
 Here’s how you can visualize **Logical and Physical Data Independence**:
 
 ```
@@ -138,6 +150,7 @@ Here’s how you can visualize **Logical and Physical Data Independence**:
 ```
 
 **Explanation**:
+
 - **Logical Data Independence**: Changes to the **Conceptual Level** do not affect the **External Level**.
 - **Physical Data Independence**: Changes to the **Internal Level** do not affect the **Conceptual Level**.
 

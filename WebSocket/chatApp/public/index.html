@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>WebSocket Chat</h2>
+
+    <input id="userId" placeholder="Enter your user ID">
+    <button onclick="registerUser()">Connect</button>
+
+    <br><br>
+
+    <input id="room" placeholder="Room name (for group chat)">
+    <button onclick="joinRoom()">Join Room</button>
+
+    <br><br>
+
+    <input id="toUser" placeholder="Send to user (leave empty for group)">
+    <input id="message" placeholder="Your message">
+    <button onclick="sendMessage()">Send</button>
+
+    <div id="chatBox"></div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

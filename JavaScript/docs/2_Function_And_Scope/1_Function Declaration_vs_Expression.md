@@ -1,4 +1,6 @@
-## Function Declaration vs Expression
+# Function Declaration vs Expression
+
+##
 
 ### 1. What is Function Declaration?
 
@@ -6,7 +8,7 @@ Function declaration defines a named function using function keyword, and it;s h
 
 ```js
 // Function Declaration
-// It's available before defination
+// It's available before definition
 console.log(greet("Avinash");
 function greet(name){
   return `Hello ${name}`);
@@ -19,7 +21,7 @@ A function expression defines a function and assign it to a variable or constant
 
 ```js
 //Function Expression
- //This will not work because varible is hoited but not initialized yet (TDZ)
+ //This will not work because variable is hoisted but not initialized yet (TDZ)
 console.log(greet("Avinash"); // Error ReferenceError: Cannot access 'greet' before initialization
 const greet = function(name){
   return `Hello ${name}`;
@@ -35,10 +37,12 @@ const greet = function(name){
 | Can be called before defined? | Yes                  | No                                       |
 | Name Required                 | Yes                  | Optional (can be anonymous)              |
 | When Defined                  | At Parse time        | At Run time                              |
-| Use Case                      | Reuasable            | Dynamic, Inline, or conditional Function |
+| Use Case                      | Reusable            | Dynamic, Inline, or conditional Function |
 
 ### 4. Why Function Expression?
+
 Function expression are powerful because
+
 - They can be anonymous (no name needed)
 - They can be passed as arguments or returned from other function (for - callback or higher-order function)
 - They can be conditionally defined.
@@ -53,9 +57,11 @@ if(Math.random()>0.5){
 ```
 
 ### 5. Best Practice
+
 Modern JS favors function expressions with const or arrow function for predictability and scoping.
 
-Use Function declaration 
+Use Function declaration
+
 - for Utils functions
 - named function that need to be hoisted
 - Recursion
