@@ -1,0 +1,46 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: #fefefe;
+    
+}
+
+.dark_container{
+    background: #403f3f;
+}
+
+.container textarea{
+    width: 300px;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #fefefe;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.container .value_container{
+    width: 300px;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #fefefe;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-overflow: clip;
+    word-wrap: break-word;
+    position: relative;
+    background: #403f3f;
+}
+
+.value_container .error_value{
+    color: rgb(253, 100, 100);
+}
+
+.value_container .count_indicator{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}

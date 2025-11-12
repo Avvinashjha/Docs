@@ -27,7 +27,7 @@ app.get("/hello", (req: Request, res: Response)=> {
 */
 
 app.get("/health", (req: Request,res: Response)=>{
-    res.status(200).json({
+    res.json({
         status: "OK",
         timeStamp: Date.now()
     })

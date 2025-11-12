@@ -118,3 +118,12 @@ function binarySearch(arr = [], val, left = 0, right= arr.length){
 
 let index = binarySearch([1,2,3,4,5,6], 5, 0, 6);
 console.log(index);
+
+function binarySearchRecursive(arr, val){
+    let left = 0;
+    let right = arr.length -1;
+
+    while(left <= right){
+        let mid = Math.floor
+    }
+}
