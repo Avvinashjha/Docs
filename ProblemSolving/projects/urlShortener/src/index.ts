@@ -1,5 +1,6 @@
 import express, {Request, Response} from "express";
 import { UrlService } from "./services/urlService";
+import taskRouter from "./routes/taskRoutes";
 
 const app = express();
 
@@ -7,6 +8,7 @@ const port = process.env.PORT || 5050;
 
 // Middle ware
 app.use(express.json());
+app.use("/task", taskRouter)
 
 app.get("/tiny", async (req: Request, res: Response) => {
   const url = req.query.url;

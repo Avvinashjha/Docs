@@ -1,56 +1,102 @@
-import express from "express";
-import fs from 'fs'
+import express, { json } from "express";
 
 const app = express();
+app.use(json());
 
-const data = JSON.parse(fs.readFileSync("./MOCK_DATA.json",{ encoding: "utf8"}));
 
-app.get("/", async(req, res)=>{
-    res.json(JSON.parse(data))
+const name = "avinash";
+
+const data = [{
+    id: 1,
+    name: "Raunak"
+},{
+    id: 2, 
+    name: "Avinash"
+}]
+
+app.get("/", (req, res)=>{
+    const response = {
+        name
+    } 
+    res.status(200).json(response);
 })
 
-app.get("/data", (req, res)=>{
-    const {limit, offset} = req.query;
-    const dataToReturn = data.slice(parseInt(offset), (parseInt(offset)+parseInt(limit)));
-    const temp = {
-        data: dataToReturn,
-        hasMore: data.length > (parseInt(limit) + parseInt(offset)),
-        totalPages: data.length / limit 
-    }
-    res.json(temp )
+app.get("/data", (req, res)=> {
+    res.json(data)
 })
 
-
-app.get("/search/:key/:search", (req, res)=>{
-    const {key, search} = req.params;
-    const filteredData = data.filter((item)=> item[key].includes(search));
-    res.json(filteredData);
-})
-
-app.get("/name/:search", (req, res)=>{
-    const {search} = req.params;
-    const filter = data.filter((item)=> item.first_name.toLowerCase().includes(search.toLowerCase()));
-    const idName = filter.map((item)=> ({name: item.first_name+" "+ item.last_name, id: item.id, email: item.email}))
-    res.json(idName);
-})
-
-app.get("/ip/:lastLimit", (req, res)=>{
-    const {lastLimit} = req.params;
-
-    const filteredData = data.filter((item)=> {
-        const ip = item.ip_address;
-        const segmentArr = ip.split(".");
-        const lastSegment = segmentArr[segmentArr.length - 1];
-        if(parseInt(lastSegment) < parseInt(lastLimit)){
-            return true;
-        }else{
-            return false
+app.get("/data/:id", (req, res)=> {
+    const id = Number(req.params.id);
+    const user = data.find((item) => item.id === id)
+    if(user === undefined){
+        const response = {
+            message: "User not found with id: "+ id,
+            data: []
         }
-    })
-    res.json(filteredData);
+        res.status(404).json(response);
+    }else{
+        const response = {
+            message: "User found",
+            data: [user]
+        }
+        res.status(200).json(response);
+    }
 })
 
+app.post("/data", (req, res)=>{
+    const {id, name} = req.body;
+    if(typeof id !== "number"){
+        const response = {
+            message: "Id should be a number"
+        }
+        return res.status(400).json(response);
+    }
+    if(data.some(item => item.id === id)){
+        const response = {
+            message: "Id is already present"
+        }
+        return res.status(400).json(response);
+    }
+    if( name === undefined){
+         const response = {
+            message: "name is required"
+        }
+        return res.status(400).json(response);
+    }
+    if( name.length === 0){
+         const response = {
+            message: "name should not be an empty string"
+        }
+        return res.status(400).json(response);
+    }
+    data.push({id, name});
+    const response = {
+        message: "User created"
+    }
+    res.status(201).json(response);
+})
 
+app.patch("/data/:id", (req, res)=>{
+    const {name} = req.body;
+    const id = parseInt(req.params.id);
+    if( name === undefined){
+         const response = {
+            message: "name is required"
+        }
+        return res.status(400).json(response);
+    }
+    if( name.length === 0){
+         const response = {
+            message: "name should not be an empty string"
+        }
+        return res.status(400).json(response);
+    }
+    const user = data.find(item => item.id === id);
+    user.name = name;
+    res.status(202).json({
+        message: "Updated successfully"
+    })
+})
 
 
 app.listen(5050, ()=>{
