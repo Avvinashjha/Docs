@@ -86,7 +86,7 @@ Characteristics of Node.js servers:
 Node.js does not create a new thread for every request, Instead:
 
 - The event loop receives a request
-- Sends ling tasks to background workers
+- Sends long tasks to background workers
 - Returns the response when done
 
 This is why nodejs is fast and scalable.
