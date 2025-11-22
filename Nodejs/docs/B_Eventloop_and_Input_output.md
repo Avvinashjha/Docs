@@ -187,3 +187,14 @@ Caveat/nuance: There are edge cases (different placement inside callbacks, order
 8. Repeat.
 
 ## 3. process.setTick() and setImmediate()
+
+| API                      | Runs                                                           | Purpose                                                                                                  |
+| ------------------------ | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| **`process.nextTick()`** | *Before the event loop continues* (highest-priority microtask) | Run something **immediately after** the current function returns — useful for fixing API ordering issues |
+| **`setImmediate()`**     | *In the “check” phase* (after I/O callbacks)                   | Run something **after the current event loop iteration**, without blocking other microtasks              |
+
+Resources:
+
+1. [How Event loop works blog](https://www.builder.io/blog/visual-guide-to-nodejs-event-loop)
+
+2. [Medium Blog](https://medium.com/%40rahul.jindal57/event-loop-in-node-js-76edd2ff909d)

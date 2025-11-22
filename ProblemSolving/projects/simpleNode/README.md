@@ -1,15 +1,23 @@
-# MVC
+# Basic Authentication Using In Memory Database
 
-M - Model
-    - User schema
-    - Setter function
-    - Helper methods 
-V - VIEW
-    - Ejs
-    - JSON
-C - CONTROLLER
-    - Handle the incoming request
-    - Validation
-    - Send the response
-S - Service
-    - (getAllUsers, getUserById, registerUser ......)
+- name
+- email
+- password
+- created_at
+
+<!-- - last_login
+- active
+- ip_address
+-  -->
+
+Sign-up
+
+- New User will register
+- username
+- email
+- password
+
+Login
+
+- username/email
+- password
