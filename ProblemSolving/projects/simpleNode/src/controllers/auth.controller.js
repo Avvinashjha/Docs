@@ -3,6 +3,8 @@ import { SignUpUser } from "../models/user.js";
 import { UserService } from "../services/user.service.js";
 import { simpleResponse } from "../utils/helperResponse.js";
 import { isValidEmail, validatePassword } from "../utils/validation.js";
+import { comparePassword, generateRandomToken } from "../utils/hash.js";
+import { generateJwtToken } from "../utils/jwt.js";
 
 export class AuthController {
   static async signup(req, res) {
@@ -44,8 +46,12 @@ export class AuthController {
       newUser.email = email;
       newUser.password = await bcrypt.hash(password,  2);
       newUser.name = name;
-      UserService.addUser(newUser);
-      res.status(201).json(simpleResponse(true, "User created successfully"))
+      const {isCreated, id} = await UserService.addUser(newUser);
+      res.status(201).json({
+        name: name,
+        email: email,
+        id: id
+      })
     } catch (error) {
       console.log(error);
       res.status(400).json({ error: error });
@@ -60,12 +66,23 @@ export class AuthController {
       return res.status(404).json(simpleResponse(false, "Username is not present"));
     }
     const [user] = users;
-
-    if(user.password !== password){
+    const isPasswordEqual = comparePassword(user.password, password);
+    if(!isPasswordEqual){
       return res.status(401).json(simpleResponse(false, "Incorrect password."));
     }
 
-    res.cookie("auth_token", "abc123", {
+    // refresh token (long lived)
+    const refreshToken = await generateRandomToken(user.name);
+
+    // jwt token (short lived)
+    const accessToken = generateJwtToken({
+      name: user.name,
+      roles: user.roles
+    }, "15m");
+
+    
+
+    res.cookie("auth_token", randomString, {
       httpOnly: true,   // prevents JS access (important for security)
       secure: false,    // set true if using HTTPS
       sameSite: "lax",
@@ -75,6 +92,10 @@ export class AuthController {
   }
 
   static resetPassword(req, res) {
+    // username/email 
+    // current password
+    // new password
+
     const body = req.body;
     res.json(body);
   }
@@ -86,6 +107,7 @@ export class AuthController {
 
   static logout(req, res) {
     const body = req.body;
+    res.
     res.json(body);
   }
 }
