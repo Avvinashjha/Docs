@@ -211,3 +211,15 @@ const renameFile = (oldPath, newPath) => {
 // renameFile("./data/test.txt", "./data/bigtext.txt");
 
 // move file
+
+const path = require("path");
+
+const file = path.basename("./data/test1.txt")
+// console.log(file);
+
+const directoryName = path.dirname("./data/test1.txt")
+// console.log(directoryName);
+
+const extensionName = path.extname("./data/test1.txt");
+console.log(extensionName);
+
