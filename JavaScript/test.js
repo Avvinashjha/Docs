@@ -1,13 +1,10 @@
-class Person {
-        // you can create a Person instance using name
-        constructor(name){
-            this.name = name;
-        }
-        // you can create a person instance by passing the json object
-        static fromJSON(json){
-            return new Person(json.name);
-        }
-    }
+// Promise
 
-    const p1 = new Person("Avinash");
-    const p2 = Person.fromJSON({name: "Avinash"})
+const p = new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        console.log("In set timeout");
+        resolve("Done!")
+    }, 1000);
+});
+
+p.then((data)=> console.log(data));
