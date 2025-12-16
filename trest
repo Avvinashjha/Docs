@@ -1,0 +1,16 @@
+Things to f:be handled by flux, when trying to bulk insert entries:
+
+If any two entries have the same dataSourceName, 
+Their sourceName should be different
+Their businessName should be different
+In case entityType = “metric”, entityDataType should contain in the list given below:
+doubleSum
+longSum
+hyperUnique
+thetaSketch
+longMin
+longMax
+doubleMin:q
+doubleMax
+longMean
+doubleMean

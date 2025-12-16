@@ -1,0 +1,12 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    background: #c1f8f1;
+    padding: 20px;
+
+}
+
+button{
+    padding: 5px 10px;
+    margin: 10px;
+}

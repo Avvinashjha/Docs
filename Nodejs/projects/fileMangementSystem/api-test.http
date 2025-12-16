@@ -1,0 +1,242 @@
+### File Management System API Tests
+### Use with REST Client extension in VS Code
+
+@baseUrl = http://localhost:5050/api
+@accessToken = 
+@refreshToken = 
+@projectId = 
+
+### Health Check
+GET http://localhost:5050/health
+
+### Root Endpoint
+GET http://localhost:5050/
+
+###############################################
+# Authentication Endpoints
+###############################################
+
+### Register New User
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### Login
+# @name login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### Verify Token
+GET {{baseUrl}}/auth/verify
+Authorization: Bearer {{accessToken}}
+
+### Refresh Token
+POST {{baseUrl}}/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
+
+### Logout
+POST {{baseUrl}}/auth/logout
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
+
+###############################################
+# User Endpoints
+###############################################
+
+### Get User Profile
+GET {{baseUrl}}/users/me
+Authorization: Bearer {{accessToken}}
+
+### Update User Profile
+PUT {{baseUrl}}/users/me
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "name": "Updated Name",
+  "email": "newemail@example.com"
+}
+
+### Change Password
+PUT {{baseUrl}}/users/me/password
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "currentPassword": "password123",
+  "newPassword": "newpassword123"
+}
+
+### Get All Users (Admin Only)
+GET {{baseUrl}}/users/all
+Authorization: Bearer {{accessToken}}
+
+### Delete Account
+DELETE {{baseUrl}}/users/me
+Authorization: Bearer {{accessToken}}
+
+###############################################
+# Project Endpoints
+###############################################
+
+### Create Project
+# @name createProject
+POST {{baseUrl}}/projects
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "name": "my-first-project",
+  "description": "This is my first project"
+}
+
+### Get All User Projects
+GET {{baseUrl}}/projects
+Authorization: Bearer {{accessToken}}
+
+### Get Specific Project
+GET {{baseUrl}}/projects/{{projectId}}
+Authorization: Bearer {{accessToken}}
+
+### Get Project File Tree
+GET {{baseUrl}}/projects/{{projectId}}/tree
+Authorization: Bearer {{accessToken}}
+
+### Update Project
+PUT {{baseUrl}}/projects/{{projectId}}
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "name": "updated-project-name",
+  "description": "Updated description"
+}
+
+### Delete Project
+DELETE {{baseUrl}}/projects/{{projectId}}
+Authorization: Bearer {{accessToken}}
+
+###############################################
+# File Endpoints (within project)
+###############################################
+
+### Create File
+POST {{baseUrl}}/projects/{{projectId}}/files
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "path": "src/index.js",
+  "content": "console.log('Hello World');"
+}
+
+### Read File
+GET {{baseUrl}}/projects/{{projectId}}/files?path=src/index.js
+Authorization: Bearer {{accessToken}}
+
+### Update File
+PUT {{baseUrl}}/projects/{{projectId}}/files
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "path": "src/index.js",
+  "content": "console.log('Hello Updated World');"
+}
+
+### Rename File
+PUT {{baseUrl}}/projects/{{projectId}}/files/rename
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "oldPath": "src/index.js",
+  "newPath": "src/main.js"
+}
+
+### Search Files by Name
+GET {{baseUrl}}/projects/{{projectId}}/files/search?query=index
+Authorization: Bearer {{accessToken}}
+
+### Search Files by Extension
+GET {{baseUrl}}/projects/{{projectId}}/files/search/ext?ext=js
+Authorization: Bearer {{accessToken}}
+
+### Create Multiple Files
+POST {{baseUrl}}/projects/{{projectId}}/files/batch
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "files": [
+    {
+      "filePath": "src/utils.js",
+      "content": "export const add = (a, b) => a + b;"
+    },
+    {
+      "filePath": "src/config.js",
+      "content": "export const API_URL = 'http://localhost:5050';"
+    }
+  ]
+}
+
+### Soft Delete File (Move to Bin)
+DELETE {{baseUrl}}/projects/{{projectId}}/files/soft?path=src/utils.js
+Authorization: Bearer {{accessToken}}
+
+### Delete File Permanently
+DELETE {{baseUrl}}/projects/{{projectId}}/files?path=src/config.js
+Authorization: Bearer {{accessToken}}
+
+###############################################
+# Directory Endpoints (within project)
+###############################################
+
+### Create Directory
+POST {{baseUrl}}/projects/{{projectId}}/directories
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "path": "src/components"
+}
+
+### List Directories
+GET {{baseUrl}}/projects/{{projectId}}/directories?path=src
+Authorization: Bearer {{accessToken}}
+
+### Rename Directory
+PUT {{baseUrl}}/projects/{{projectId}}/directories/rename
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "oldPath": "src/components",
+  "newPath": "src/views"
+}
+
+### Soft Delete Directory (Move to Bin)
+DELETE {{baseUrl}}/projects/{{projectId}}/directories/soft?path=src/views
+Authorization: Bearer {{accessToken}}
+
+### Delete Directory Permanently (Recursive)
+DELETE {{baseUrl}}/projects/{{projectId}}/directories?path=src/old-folder&recursive=true
+Authorization: Bearer {{accessToken}}
+

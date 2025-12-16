@@ -1,0 +1,359 @@
+### File Management System API Tests
+### Use REST Client extension in VS Code to run these requests
+
+### Variables
+@baseUrl = http://localhost:5050
+@accessToken = 
+@refreshToken = 
+@projectId = 
+
+### Health Check
+GET {{baseUrl}}/health
+
+### Root Endpoint (API Documentation)
+GET {{baseUrl}}/
+
+###############################################
+### AUTHENTICATION
+###############################################
+
+### 1. Register a new user
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### 2. Login (Save the tokens!)
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### 3. Verify Token
+GET {{baseUrl}}/auth/verify
+Authorization: Bearer {{accessToken}}
+
+### 4. Refresh Access Token
+POST {{baseUrl}}/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
+
+### 5. Logout
+POST {{baseUrl}}/auth/logout
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
+
+###############################################
+### USER MANAGEMENT
+###############################################
+
+### Get Current User Info
+GET {{baseUrl}}/users/me
+Authorization: Bearer {{accessToken}}
+
+### Get User Statistics
+GET {{baseUrl}}/users/me/stats
+Authorization: Bearer {{accessToken}}
+
+### Update Profile
+PUT {{baseUrl}}/users/me
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "name": "Updated Name",
+  "email": "updated@example.com"
+}
+
+### Change Password
+PUT {{baseUrl}}/users/me/password
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "currentPassword": "password123",
+  "newPassword": "newpassword123"
+}
+
+### Get All Users (Admin Only)
+GET {{baseUrl}}/users/all
+Authorization: Bearer {{accessToken}}
+
+###############################################
+### PROJECT MANAGEMENT
+###############################################
+
+### Create a Project (Save the ID!)
+POST {{baseUrl}}/projects
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "name": "my-test-project",
+  "description": "A test project for the file management system"
+}
+
+### Get All Projects
+GET {{baseUrl}}/projects
+Authorization: Bearer {{accessToken}}
+
+### Get Project Details
+GET {{baseUrl}}/projects/{{projectId}}
+Authorization: Bearer {{accessToken}}
+
+### Get Project File Tree
+GET {{baseUrl}}/projects/{{projectId}}/tree
+Authorization: Bearer {{accessToken}}
+
+### Update Project
+PUT {{baseUrl}}/projects/{{projectId}}
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "name": "updated-project-name",
+  "description": "Updated description"
+}
+
+### Delete Project
+DELETE {{baseUrl}}/projects/{{projectId}}
+Authorization: Bearer {{accessToken}}
+
+###############################################
+### FILE OPERATIONS
+###############################################
+
+### Create a File
+POST {{baseUrl}}/projects/{{projectId}}/files
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "filePath": "index.js",
+  "content": "console.log('Hello World!');"
+}
+
+### Create File in Subdirectory
+POST {{baseUrl}}/projects/{{projectId}}/files
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "filePath": "src/app.js",
+  "content": "const express = require('express');\nconst app = express();\n\napp.listen(3000);"
+}
+
+### Read a File
+GET {{baseUrl}}/projects/{{projectId}}/files?path=index.js
+Authorization: Bearer {{accessToken}}
+
+### Update a File
+PUT {{baseUrl}}/projects/{{projectId}}/files
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "filePath": "index.js",
+  "content": "console.log('Updated content!');"
+}
+
+### Get File Stats
+GET {{baseUrl}}/projects/{{projectId}}/files/stats?path=index.js
+Authorization: Bearer {{accessToken}}
+
+### Search Files by Name
+GET {{baseUrl}}/projects/{{projectId}}/files/search?query=index
+Authorization: Bearer {{accessToken}}
+
+### Search Files by Extension
+GET {{baseUrl}}/projects/{{projectId}}/files/search/ext?ext=js
+Authorization: Bearer {{accessToken}}
+
+### Rename File
+PUT {{baseUrl}}/projects/{{projectId}}/files/rename
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "oldPath": "index.js",
+  "newPath": "main.js"
+}
+
+### Move File
+PUT {{baseUrl}}/projects/{{projectId}}/files/move
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "oldPath": "main.js",
+  "newPath": "src/main.js"
+}
+
+### Create Multiple Files
+POST {{baseUrl}}/projects/{{projectId}}/files/batch
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "files": [
+    {
+      "fileName": "package.json",
+      "content": "{\"name\": \"my-app\", \"version\": \"1.0.0\"}"
+    },
+    {
+      "fileName": "README.md",
+      "content": "# My Project\n\nThis is a test project."
+    },
+    {
+      "fileName": ".gitignore",
+      "content": "node_modules/\n.env\n"
+    }
+  ]
+}
+
+### Delete a File
+DELETE {{baseUrl}}/projects/{{projectId}}/files?path=test.js
+Authorization: Bearer {{accessToken}}
+
+###############################################
+### DIRECTORY OPERATIONS
+###############################################
+
+### List Root Directory
+GET {{baseUrl}}/projects/{{projectId}}/directories
+Authorization: Bearer {{accessToken}}
+
+### List Specific Directory
+GET {{baseUrl}}/projects/{{projectId}}/directories?path=src
+Authorization: Bearer {{accessToken}}
+
+### Create Directory
+POST {{baseUrl}}/projects/{{projectId}}/directories
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "path": "src"
+}
+
+### Create Nested Directory
+POST {{baseUrl}}/projects/{{projectId}}/directories
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "path": "src/components"
+}
+
+### Rename Directory
+PUT {{baseUrl}}/projects/{{projectId}}/directories/rename
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "oldPath": "src/components",
+  "newPath": "src/views"
+}
+
+### Move Directory
+PUT {{baseUrl}}/projects/{{projectId}}/directories/move
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "sourcePath": "src/views",
+  "destPath": "src/ui/views"
+}
+
+### Copy Directory
+POST {{baseUrl}}/projects/{{projectId}}/directories/copy
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "sourcePath": "src/ui",
+  "destPath": "src/ui-backup"
+}
+
+### Delete Directory
+DELETE {{baseUrl}}/projects/{{projectId}}/directories?path=src/ui-backup
+Authorization: Bearer {{accessToken}}
+
+###############################################
+### TESTING WORKFLOW
+###############################################
+
+### Complete Test Workflow
+# 1. Register user (above)
+# 2. Login and save accessToken
+# 3. Create project and save projectId
+# 4. Create directory structure:
+
+POST {{baseUrl}}/projects/{{projectId}}/directories
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "path": "src"
+}
+
+###
+
+POST {{baseUrl}}/projects/{{projectId}}/directories
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "path": "src/utils"
+}
+
+###
+
+POST {{baseUrl}}/projects/{{projectId}}/directories
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "path": "tests"
+}
+
+### 5. Create files:
+
+POST {{baseUrl}}/projects/{{projectId}}/files
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "filePath": "src/index.js",
+  "content": "console.log('Main entry point');"
+}
+
+###
+
+POST {{baseUrl}}/projects/{{projectId}}/files
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "filePath": "src/utils/helper.js",
+  "content": "export const helper = () => { return 'Helper function'; };"
+}
+
+### 6. Get complete file tree:
+
+GET {{baseUrl}}/projects/{{projectId}}/tree
+Authorization: Bearer {{accessToken}}
+

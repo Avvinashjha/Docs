@@ -1,26 +1,27 @@
-import { Router, Request, Response }  from "express";
-import { errorResponse } from "../utils/helper";
+import { Router } from "express";
 import { FileController } from "../controller/files.controller";
+import { requireAuth } from "../middlewares/auth.middleware";
+import { requireProjectAccess } from "../middlewares/project.middleware";
 
 export const filesRouter = Router();
 
+// All file routes require authentication and project access
+// Note: These routes are mounted under /projects/:projectId/files in the main app
 
-filesRouter.get("/", FileController.readFile);
+filesRouter.use(requireAuth);
+filesRouter.use(requireProjectAccess);
 
-filesRouter.get("/search", FileController.searchFile);
+// File operations
+filesRouter.get("/", FileController.readFile); // ?path=...
+filesRouter.get("/stats", FileController.getFileStats); // ?path=...
+filesRouter.get("/search", FileController.searchFile); // ?query=...
+filesRouter.get("/search/ext", FileController.searchByExt); // ?ext=...
 
-filesRouter.get("/search/ext", FileController.searchByExt);
+filesRouter.post("/", FileController.createFile);
+filesRouter.post("/batch", FileController.createMultipleFiles);
 
+filesRouter.put("/", FileController.updateFile);
 filesRouter.put("/rename", FileController.renameFile);
+filesRouter.put("/move", FileController.moveFile);
 
-filesRouter.post("/create", FileController.createNewFile);
-
-filesRouter.post("/create/multi", FileController.createMultipleFiles);
-
-filesRouter.post("/update", FileController.updateFile);
-
-filesRouter.post("/move", FileController.moveFile);
-
-filesRouter.delete("/delete", FileController.deleteFile);
-
-filesRouter.delete("/delete/soft", FileController.softDeleteFile);
+filesRouter.delete("/", FileController.deleteFile); // ?path=...
