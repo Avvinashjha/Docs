@@ -44,12 +44,61 @@ Array.prototype.bubbleSort = function(){
     return this;
 }
 
-const map = new Map();
-map.delete()
-const set = new Set();
-let arr = [5,3,8,4];
-console.log(arr);
-// arr.bubbleSort();
-arr.selectionSort();
-console.log(arr);
+// const map = new Map();
+// map.delete()
+// const set = new Set();
+// let arr = [5,3,8,4];
+// console.log(arr);
+// // arr.bubbleSort();
+// arr.selectionSort();
+// console.log(arr);
+
+/**
+ * Merge Sort
+ * n(log(n))
+ */
+
+function mergeSortIterative(arr) {
+    const n = arr.length;
+    const temp = new Array(n);
+
+    for (let size = 1; size < n; size *= 2) {
+        for (let left = 0; left < n - size; left += 2 * size) {
+            const mid = left + size - 1;
+            const right = Math.min(left + 2 * size - 1, n - 1);
+
+            merge(arr, temp, left, mid, right);
+        }
+    }
+    return arr;
+}
+
+function merge(arr, temp, left, mid, right) {
+    let i = left;
+    let j = mid + 1;
+    let k = left;
+
+    while (i <= mid && j <= right) {
+        if (arr[i] <= arr[j]) {
+            temp[k++] = arr[i++];
+        } else {
+            temp[k++] = arr[j++];
+        }
+    }
+
+    while (i <= mid) {
+        temp[k++] = arr[i++];
+    }
+
+    while (j <= right) {
+        temp[k++] = arr[j++];
+    }
+
+    for (let p = left; p <= right; p++) {
+        arr[p] = temp[p];
+    }
+}
+
+// const res = mergeSortIterative([4, 3, 18, 2, 21, 64, 9, 8]);
+// console.log(res);
 
