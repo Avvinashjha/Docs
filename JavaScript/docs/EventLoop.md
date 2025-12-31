@@ -616,13 +616,122 @@ Event Loop
 
 - Sync code can be non blocking and async code can be blocking it depends on design (good or bad).
 
-Example: Async Blocking
+Example: Async But Blocking
+
+```js
+setTimeout(()=> {
+    const start = Data.now();
+    while(Date.now() - start < 2000){}
+}. 0);
+```
+
+Even though async, the callback blocks the stack.
+
+#### Conclusion
+
+Blocking execution prevents the Javascript call stack from processing other tasks, while non-blocking execution delegates work to runtime and allows the event loop to keep the application responsive.
+
+- Blocking freezes the app
+- Non-Blocking keeps stack free
+- Event loop only work if stack is free
+- Avoid CPU-heavy work on main thread.
 
 ### 7. What is Event-Driven Programming?
+
+Event-driven programming means, Javascript executes code in response to event, not in continuous flow.
+
+An event is anything that happens in the system
+- User actions (click, keypress)
+- Timers finishing
+- Network response
+- File read completion
+- Promise resolution
+
+Javascript waits for event and reacts when they occur.
+
+#### Basic Event-Driven Flow
+
+1. Register an event listener
+2. Event happens
+3. Callback is queued
+4. Event loop executes the callback 
+
+#### Simple Example (Browse)
+
+```js
+button.addEventListener("click", ()=>{
+    console.log("Button Clicked");
+})
+```
+
+- Code does not run immediately
+- Runs only when user clicks
+
+#### Example (Node.js)
+
+```js
+const fs = require("fs");
+fs.readFile("file.txt", ()=>{
+    console.log("File read done");
+});
+```
+
+- Js doe not wait for file I/O
+- Callbacks runs when event fires
+
+#### Why Javascript is event driven?
+
+Because:
+
+- Javascript is single threaded
+- needs to stay responsive
+- Handles many async operations efficiently
+
+Event-Driven Model
+
+- Avoids blocking
+- Improves scalability
+- Enables concurrency
+
+#### Event-Driven vs Procedural
+
+|Procedural | Event-Driven|
+|-----------|--------------|
+|Fixed Flow | Reactive |
+|Blocks Execution | Non-blocking |
+| Set-by-step | Trigger based|
+|Hard to scale | Easy to scale |
+
+#### Event Loop Role
+
+The event loop:
+
+- Watches for events
+- Decides when callback executes
+- Ensure stack is free
+
+Without the event-loop -> no event-driven behavior
+
+#### Conclusion
+
+Event-driven programming in Javascript means the application reacts to events such as user actions or sync task completion, executing callbacks through the vent loop without blocking the main thread.
+
+### Summary
+
+We now understand
+
+- JS Runtime
+- Call stack
+- Memory Heap
+- Execution Context
+- Sync vs Async
+- Blocking vs Non-Blocking
+- Event-driven model
 
 ## B. Core Event Loop Concepts
 
 ### 1. What is Event Loop?
+
 
 ### 2. Call Stack and Event Loop Interaction
 
