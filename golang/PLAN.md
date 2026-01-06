@@ -104,10 +104,13 @@ I'll create a comprehensive roadmap for learning Go, building CLI tools and back
 - Goroutines
   - Creating and launching goroutines
   - Understanding goroutine scheduling
+  - Wait Groups and It's use case, sync wait group
+  - Defer 
 - Channels
   - Unbuffered channels
   - Buffered channels
   - Channel direction (send-only, receive-only)
+  - Receive Only Chanel / Send Only chanel
   - Closing channels
   - Range over channels
 - Select statement
@@ -132,6 +135,8 @@ I'll create a comprehensive roadmap for learning Go, building CLI tools and back
   - context.WithValue
 - Race condition detection
 - Deadlock prevention
+
+## 12. Os Module / File System
 
 ### 12. Testing
 

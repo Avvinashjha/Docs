@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // slice is dynamic array
 // most used construct in go
 // it has many useful methods
@@ -11,4 +13,8 @@ func main() {
 	// fmt.Print(len(nums))
 
 	var nums = make([]int, 2)
+
+	nums = append(nums, 1)
+	nums[1] = 9
+	fmt.Println(nums)
 }

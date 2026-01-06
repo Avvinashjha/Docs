@@ -1,18 +1,38 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-var lang = "golang"
+var gn = 666.66
 
 func main() {
-	// a := 1
-	var a int = 10
-	var b string
+	//. declare a variable with var and type
+	var a float32 = 9.99
+	fmt.Println(a)
 
-	b = "adf"
+	// declare a variable and use type infer
+	var b = 889.9900
+	fmt.Println(b)
 
-	c := true
-	lang = "Java"
+	// use a default value variable
+	var f float32
+	fmt.Println(f)
 
-	fmt.Println(a, b, c, lang)
+	// declare variable using short hand
+	c := 878.9877
+	fmt.Println(c)
+
+	// declare multiple variable using var with type
+	var g, h float32 = 7.8, 9.8
+
+	// declare multiple variable using var without type
+	var i, j = 6.6, 7.9 // type infer
+	fmt.Println(g, h, i, j)
+
+	// declare multiple variable using short hand
+	d, e := 67.77, 89.88
+	fmt.Println(d, e)
+
+	fmt.Println(gn)
 }

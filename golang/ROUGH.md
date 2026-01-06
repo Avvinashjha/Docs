@@ -408,3 +408,4 @@ Slices are the dynamic array, it is one of the most use construct in go. slices 
    ```go
     fmt.Println(nums[1])// index out of range [1] with length 0
    ```
+   
