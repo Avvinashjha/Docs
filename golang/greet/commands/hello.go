@@ -15,6 +15,7 @@ func Hello(args []string) {
 	if err := fs.Parse(args); err != nil {
 		return
 	}
+	
 
 	fmt.Printf("Hello, %s!\n", *name)
 }

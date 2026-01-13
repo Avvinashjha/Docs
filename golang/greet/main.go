@@ -22,6 +22,12 @@ func main() {
 		commands.Goodbye(args)
 	case "help":
 		commands.Help()
+	case "add":
+		commands.Add(args)
+	case "sub":
+		commands.Sub(args)
+	case "sort":
+		commands.Sort(args)
 	default:
 		fmt.Fprintf(os.Stderr, "Unknown command %s\n\n", cmd)
 		commands.Help()

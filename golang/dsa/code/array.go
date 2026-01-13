@@ -1,29 +1,6 @@
-package main
+package dsa
 
-import (
-	"fmt"
-	// "slices"
-	// "sort"
-)
-
-func main() {
-	// arr := [14]int{1, 2, 3, 4, 5, 10, 122, 32, 13, 17, 19, 23, 42, 2}
-	arr := [10]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}
-	// res := findAllPrimeNumber(arr[:])
-	// res := removeDuplicateFromSortedArray(color[:])
-	// fmt.Println(color)
-	// matrix := [][]int{
-	// 	{1, 0, 1}, {0, 1, 1}, {1, 1, 1},
-	// }
-	// fmt.Println(matrix)
-	// setMatrixZero(matrix)
-	// fmt.Println(matrix)
-	fmt.Println(arr)
-	moveZeros(arr[:])
-	fmt.Println(arr)
-}
-
-func findAllPrimeNumber(arr []int) []int {
+func FindAllPrimeNumber(arr []int) []int {
 	primes := []int{}
 
 	for _, val := range arr {
