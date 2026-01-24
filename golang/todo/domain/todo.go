@@ -29,7 +29,7 @@ type Todo struct {
 	Status   Status
 
 	Tags     []string
-	Comments []string
+	Comments []Comment
 
 	CreatedAt time.Time
 	UpdatedAt time.Time
