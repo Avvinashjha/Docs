@@ -42,7 +42,7 @@ func main() {
 		cmd.Help()
 		return
 	default:
-		fmt.Fprint(os.Stderr, "Unknown command %s\n\n", command)
+		fmt.Fprint(os.Stderr, "Unknown command \n\n", command)
 		cmd.Help()
 		os.Exit(1)
 	}
