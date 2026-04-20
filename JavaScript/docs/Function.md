@@ -736,7 +736,7 @@ Local scope isolates variables to prevent pollution of the global namespace.
 
 ### 5. Block Scope (`let` & `const`)
 
-Introduced in **ES6**, `let` and `const` provide **block-level scoping,**meaning they only exist within the `{}` they’re defined in.
+Introduced in **ES6**, `let` and `const` provide **block-level scoping,** meaning they only exist within the `{}` they’re defined in.
 
 ```js
 {

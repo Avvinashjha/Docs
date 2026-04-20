@@ -1,0 +1,3 @@
+const chain_json =  "[[{\"id\": 5885476, \"store_id\": 4027, \"store_type\": \"DATA_STORE\", \"field_name\": \"bid\", \"data_type\": null, \"is_metric\": null}, {\"id\": 5895400, \"store_id\": 9080, \"store_type\": \"EDGE\", \"field_name\": \"bid\", \"data_type\": null, \"is_metric\": null}, {\"id\": 5884808, \"store_id\": 4007, \"store_type\": \"DATA_STORE\", \"field_name\": \"bid\", \"data_type\": \"string\", \"is_metric\": null}]]";
+
+console.log(JSON.parse(chain_json))
