@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package user;
+
+service UserService {
+    rpc GetUser (UserRequest) returns (UserResponse);
+
+    rpc ListUsers (Empty) returns (stream UserResponse);
+
+    rpc UploadUsers (stream UserRequest) returns (UserResponse);
+
+    rpc Chat(stream UserRequest) returns (stream UserResponse);
+}
+
+message Empty {}
+
+message UserRequest{
+    int32 id = 1;
+}
+
+message UserResponse{
+    string name = 1;
+    string email = 2;
+}

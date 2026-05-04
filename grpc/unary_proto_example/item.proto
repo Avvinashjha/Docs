@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package item;
+
+service ItemService {
+  rpc GetItem (GetItemRequest) returns (Item);
+  rpc GetAllItem (Empty) returns (ItemList);
+  rpc SetItem (SetItemRequest) returns (Item);
+  rpc DeleteItem (GetItemRequest) returns (SuccessResponse);
+  rpc UpdateItem (UpdateItemRequest) returns (Item);
+}
+
+message Empty {}
+
+message GetItemRequest {
+  int32 id = 1;
+}
+
+message SetItemRequest {
+  string title = 1;
+  string description = 2;
+  double price = 3;
+  double discount = 4;
+  bool isFeatured = 5;
+  repeated string categories = 6;
+}
+
+message UpdateItemRequest {
+  int32 id = 1;
+  string title = 2;
+  string description = 3;
+  double price = 4;
+  double discount = 5;
+  bool isFeatured = 6;
+  repeated string categories = 7;
+}
+
+message Item {
+  int32 id = 1;
+  string title = 2;
+  string description = 3;
+  double price = 4;
+  double discount = 5;
+  bool isFeatured = 6;
+  repeated string categories = 7;
+}
+
+message ItemList {
+  repeated Item items = 1;
+}
+
+message SuccessResponse {
+  bool success = 1;
+  string message = 2;
+}
