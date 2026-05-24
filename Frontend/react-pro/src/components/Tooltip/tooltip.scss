@@ -1,0 +1,56 @@
+.tooltip {
+    position: fixed;
+    z-index: 1000;
+
+    padding: 8px 12px;
+
+    border-radius: 6px;
+
+    background: #111827;
+
+    color: white;
+
+    font-size: 13px;
+    line-height: 1;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition: opacity 0.15s ease
+                transform 0.15s ease;
+    transform: scale(.96);
+
+    &--visible{
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+/*
+Why Position fixed?
+
+Coordinates from
+
+getBoundingClientRect()
+
+are viewport-relative
+
+fixed matched viewport coordinate system.
+
+Why pointer-event none?
+
+Tooltip should not interfere with hover
+
+Otherwise:
+
+cursor enters tooltip
+triggers loses hover
+flickering occurs
+
+Classic tooltip engineering problem
+*/

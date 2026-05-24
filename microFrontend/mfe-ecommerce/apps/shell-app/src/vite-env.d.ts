@@ -1,0 +1,1 @@
+declare module "product_mfe/ProductPage";
