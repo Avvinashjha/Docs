@@ -80,3 +80,6 @@ function throttle(callback, delay){
 ## 9. microtask vs macrotask
 
 ## 10. Promise Execution order
+
+## 11. Call apply and bind
+

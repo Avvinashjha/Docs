@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div draggable="true" ondrag="handleDrag" ondragover="handleDragOver" ondragleave="handleDragLeave">
+Hello
+    </div>
+
+    <script>
+        function handleDrag(e){
+            console.log(e + "hi");
+            
+        }
+
+        function handleDragOver(e){
+            console.log(e);
+        }
+
+        function handleDragLeave(e){
+            console.log(e);
+        }
+    </script>
+</body>
+</html>

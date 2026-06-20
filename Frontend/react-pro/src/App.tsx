@@ -1,17 +1,9 @@
-import { Button } from "./components/Button";
-import { Tooltip } from "./components/Tooltip/Tooltip";
+import SimpleCalc from "./demo/ReducerDemo";
 
-const App = () => {
+ const App = () => {
     const D:React.HTMLElementType = 'div' ;
     return <D>
-     <Tooltip
-  content="Save changes"
-  placement="top"
->
-  <Button>
-    Save
-  </Button>
-</Tooltip>
+      <SimpleCalc/>
     </D>
 }
 
