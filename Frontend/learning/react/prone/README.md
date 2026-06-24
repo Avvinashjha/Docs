@@ -7,3 +7,5 @@ TASK:
 
 - Create a PPT on UseEffect and you have to explain ppt to me
 - Create a userList Page with Card and all other components
+
+- Avatar bg should be random
