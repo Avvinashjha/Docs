@@ -18,5 +18,10 @@ export const routes = [
         title: "Demo",
         icon: "",
         path: "/demo"
+    },
+    {
+        "title": "User List",
+        icon: "",
+        path: "/userList"
     }
 ]

@@ -1,0 +1,15 @@
+.chip {
+    padding: 5px 10px;
+    border: 1px solid #f2f2f3;
+    width: fit-content;
+    border-radius: 8px;
+    color: rgb(46, 36, 36);
+}
+
+.chip__warning{
+    background: rgb(241, 203, 133);
+}
+
+.chip__error{
+    background: red;
+}

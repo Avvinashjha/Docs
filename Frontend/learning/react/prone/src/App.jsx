@@ -5,6 +5,7 @@ import Contact from "./pages/contact";
 import Demo from "./pages/demo";
 import Button from "./pages/demo/Button";
 import Home from "./pages/home";
+import UserList from "./pages/userList";
 import "./style.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -23,6 +24,7 @@ function App(){
                     <Route path="button" element={<Button/>}/>
                     <Route path=":test" element={<><h1>Hey there</h1></>}/>
                 </Route>
+                <Route path="/userList" element={<UserList/>}/>
             </Routes>
           </BrowserRouter>  
         </>

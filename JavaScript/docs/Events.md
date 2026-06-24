@@ -7,7 +7,7 @@ An event is a notification that something happened in the browser.
 Example:
 
 - User clicks a button
-- Yser type in an input box
+- User type in an input box
 - Page finishes loading
 - Dom Element Loaded
 - Network request completes
@@ -203,7 +203,7 @@ document.getElementById("list").addEventListener("click", function (e) {
     }, { passive: true });
     ```
 
-5. If you need to listen to event once the. you can use once listener
+5. If you need to listen to event once then, you can use once listener
 
    ```js
     button.addEventListener("click", () => console.log("Clicked only once"), {
@@ -245,7 +245,7 @@ Received: Hello from custom event!
 
 ## DOM Event control Methods
 
-1. event.preventDefault()
+1. **event.preventDefault()**
 
    Prevent the browser's default action from happening.
 
@@ -260,7 +260,7 @@ Received: Hello from custom event!
    - Custom form handling
    - Prevent page from reload
    - Prevent link navigation
-   - Disable context menu show something els
+   - Disable context menu show something else
    - Prevent checkbox from toggling temporarily
    - Custom drag & drop
 
@@ -277,7 +277,7 @@ Received: Hello from custom event!
     </script>
    ```
 
-2. event.stopPropagation()
+2. **event.stopPropagation()**
 
    Stops the event from continuing to bubble up to capture down the DOM tree.
 
@@ -312,7 +312,7 @@ Received: Hello from custom event!
       Child clicked only
     ```
 
-3. event.stopImmediatePropagation()
+3. **event.stopImmediatePropagation()**
 
     It stops:
     1. Event propagation to parent
@@ -327,12 +327,12 @@ Received: Hello from custom event!
     Example:
 
     ```js
-    button.addEventListener("click", () => console.log("Listener 1"));
-    button.addEventListener("click", () => console.log("Listener 2"));
-    button.addEventListener("click", (e) => {
+     button.addEventListener("click", (e) => {
       e.stopImmediatePropagation();
       console.log("Listener 3 (only this runs)");
     });
+    button.addEventListener("click", () => console.log("Listener 1"));
+    button.addEventListener("click", () => console.log("Listener 2"));
     ```
 
     Output:
@@ -340,3 +340,69 @@ Received: Hello from custom event!
     ```txt
     Listener 3 (only this runs)
     ```
+
+    Example:
+
+    ```js
+      <form id="myForm">
+        <input type="text" id="username" placeholder="Enter username (min 5 chars)">
+        <button id="submitBtn" type="button">Submit</button>
+      </form>
+
+      <script>
+      const submitBtn = document.getElementById("submitBtn");
+      const usernameInput = document.getElementById("username");
+
+      // 1. FIRST LISTENER: Security/Validation Check
+      submitBtn.addEventListener("click", (e) => {
+        console.log("1. Validator checking inputs...");
+
+        if (usernameInput.value.length < 5) {
+          alert("Validation failed! Username too short.");
+
+          // Halt the execution queue right here!
+          e.stopImmediatePropagation(); 
+        }
+      });
+
+      // 2. SECOND LISTENER: Form Submission (Should only run if valid)
+      submitBtn.addEventListener("click", () => {
+        console.log("2. Success! Sending data to the server...");
+      });
+
+      // 3. THIRD LISTENER: Analytics Tracking
+      submitBtn.addEventListener("click", () => {
+        console.log("3. Analytics: Submit button clicked.");
+      });
+      </script>
+    ```
+
+## Important Event Properties (target vs. currentTarget)
+
+When working with event delegation or nested elements, understanding the difference between these two properties on the event object is vital.
+
+- `e.target`: The actual, deep element that triggered the event (the origin).
+
+- `e.currentTarget`: The element that the event listener is attached to.
+
+> Why it matters: If you click an `<li>` inside a `<ul id="list">`, e.target is the `<li>`, but e.currentTarget is the ul.
+
+## The AbortSignal for Listener Removal
+While removeEventListener works, modern JavaScript provides a much cleaner way to remove single or multiple event listeners at once using AbortController.
+
+```js
+const controller = new AbortController();
+
+// Attach listener and pass the signal
+window.addEventListener('resize', () => console.log('Resizing...'), { signal: controller.signal });
+
+// When you want to clean up (e.g., component unmounts):
+controller.abort(); // Removes the event listener cleanly!
+```
+
+> Why to use: You don't have to keep a reference to named functions anymore. You can clean up dozens of different listeners with a single controller.abort() call.
+
+## Event Loop / Microtask  with Events
+When an event handler runs, it is placed into the Callback/Macro Task Queue of the Event Loop.
+However, if a user clicks a button, the microtask queue clears between event listeners. If you trigger the click via code (button.click()), the execution happens synchronously, meaning microtasks wait until all handlers finish. This is a common advanced interview topic regarding asynchronous JS execution behavior.
+

@@ -49,3 +49,5 @@
 - React
 - React-DOM
 - window.location
+
+- API to call: [Link](https://raw.githubusercontent.com/Avvinashjha/Docs/refs/heads/main/Nodejs/projects/InfiniteData/server/MOCK_DATA.json)

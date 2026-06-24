@@ -1,0 +1,28 @@
+.card__container{
+    background: #97c5f4;
+    max-width: 300px;
+    padding: 20px;
+    border: 1px solid #f3f4f5;
+    border-radius: 8px;
+}
+
+.card__top{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 10px;
+}
+
+.card__top-left{
+
+}
+
+.card__top-mid{
+
+}
+
+.card__body{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
